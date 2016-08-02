@@ -13,7 +13,7 @@ import app.freecharge.pageobjects.MainActivityPage;
 import app.freecharge.pageobjects.Register;
 
 
-public class FreechargeInstallation extends DriverInitialization {
+public class FreechargeAppTests extends DriverInitialization {
 
 	Process p;
 	String cmd="adb install D:/Softwares/APPIUM/Sample_apk_files/FreeCharge.apk";
@@ -25,7 +25,7 @@ public class FreechargeInstallation extends DriverInitialization {
 
 	@BeforeSuite
 	public void setup(){
-		
+
 		mpage = new MainActivityPage();
 		reg=new Register();
 		appActions = new AppiumStartAndStop();
@@ -35,9 +35,7 @@ public class FreechargeInstallation extends DriverInitialization {
 	@Test
 	public void testCMD() throws IOException, InterruptedException
 	{
-		
-		boolean expected = true;
-		
+
 		p=Runtime.getRuntime().exec(cmd);
 		if(p!=null)	{
 			System.out.println("App installed");
@@ -45,10 +43,10 @@ public class FreechargeInstallation extends DriverInitialization {
 
 		Thread.sleep(10000);
 		//Assert.assertEquals(mpage.openApp(), expected);
-		
-		
+
+
 		reg.registerClick();
-		//driver.findElementByName("REGISTER").click();
+		reg.registration();
 
 	}
 	@AfterTest
