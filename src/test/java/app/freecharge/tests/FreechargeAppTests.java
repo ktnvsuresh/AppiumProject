@@ -10,7 +10,9 @@ import org.testng.annotations.Test;
 import app.freecharge.androiddriver.DriverInitialization;
 import app.freecharge.common.utils.AppiumStartAndStop;
 import app.freecharge.pageobjects.MainActivityPage;
-import app.freecharge.pageobjects.Register;
+import app.freecharge.pageobjects.RegisterationPage;
+import app.freecharge.pageobjects.SignInPage;
+import app.freecharge.pageobjects.SignOutPage;
 
 
 public class FreechargeAppTests extends DriverInitialization {
@@ -19,16 +21,20 @@ public class FreechargeAppTests extends DriverInitialization {
 	String cmd="adb install D:/Softwares/APPIUM/Sample_apk_files/FreeCharge.apk";
 
 
-	public Register reg = null;
+	public RegisterationPage reg = null;
 	public AppiumStartAndStop appActions = null;
 	public MainActivityPage mpage = null;
-
+	public SignInPage signIn=null;
+	public SignOutPage signOut=null;
+	
 	@BeforeSuite
 	public void setup(){
 
 		mpage = new MainActivityPage();
-		reg=new Register();
+		reg=new RegisterationPage();
 		appActions = new AppiumStartAndStop();
+		signIn = new SignInPage();
+		signOut = new SignOutPage();
 
 	}
 
@@ -45,8 +51,11 @@ public class FreechargeAppTests extends DriverInitialization {
 		//Assert.assertEquals(mpage.openApp(), expected);
 
 
-		reg.registerClick();
-		reg.registration();
+		/*reg.registerClick();
+		reg.registration();*/
+		signIn.Login();
+		signOut.Logout();
+		
 
 	}
 	@AfterTest
