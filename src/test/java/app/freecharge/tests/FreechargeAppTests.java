@@ -11,6 +11,7 @@ import app.freecharge.androiddriver.DriverInitialization;
 import app.freecharge.common.utils.AppiumStartAndStop;
 import app.freecharge.pageobjects.MainActivityPage;
 import app.freecharge.pageobjects.RegisterationPage;
+import app.freecharge.pageobjects.ResetPasswordPage;
 import app.freecharge.pageobjects.SignInPage;
 import app.freecharge.pageobjects.SignOutPage;
 
@@ -26,6 +27,7 @@ public class FreechargeAppTests extends DriverInitialization {
 	public MainActivityPage mpage = null;
 	public SignInPage signIn=null;
 	public SignOutPage signOut=null;
+	public ResetPasswordPage restPassword = null;
 	
 	@BeforeSuite
 	public void setup(){
@@ -48,13 +50,16 @@ public class FreechargeAppTests extends DriverInitialization {
 		}
 
 		Thread.sleep(10000);
-		//Assert.assertEquals(mpage.openApp(), expected);
-
-
+         // Registration page tests
 		/*reg.registerClick();
 		reg.registration();*/
-		signIn.Login();
-		signOut.Logout();
+		
+		//Singn page Tests
+		
+		//signIn.Login();
+		//signOut.Logout();
+		// Forgot Password Tests
+		signIn.ForgotPassword();
 		
 
 	}
