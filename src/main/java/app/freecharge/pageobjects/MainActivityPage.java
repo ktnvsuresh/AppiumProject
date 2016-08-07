@@ -7,18 +7,18 @@ public class MainActivityPage extends DriverInitialization{
 	public MainActivityPage() {
 		super();
 	}
-		
-/*	public boolean openApp(){
-		boolean stepResult = false;
-		
-		//driver.findElementById("2").click();
-		//driver.findElementByClassName("FreeCharge").click();	
-		stepResult = true;
-		return stepResult;
-		
-		
-	}*/
-	public void quit(){
-		driver.quit();
+
+	public void signOut() {
+		// TODO Auto-generated method stub
+		driver.scrollTo("Sign out");
+		driver.findElementByName("Sign out").click();
 	}
+
+	public void quit(){
+		logger.info("inside quit method...");
+		driver.quit();
+		isdriverinitialized = false;
+	}
+
+
 }

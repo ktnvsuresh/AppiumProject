@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 
 import app.freecharge.androiddriver.DriverInitialization;
 import app.freecharge.common.utils.AppiumStartAndStop;
+import app.freecharge.pageobjects.HomePage;
 import app.freecharge.pageobjects.MainActivityPage;
 import app.freecharge.pageobjects.RegisterationPage;
 import app.freecharge.pageobjects.ResetPasswordPage;
@@ -28,7 +29,7 @@ public class FreechargeAppTests extends DriverInitialization {
 	public SignInPage signIn=null;
 	public SignOutPage signOut=null;
 	public ResetPasswordPage restPassword = null;
-	
+	public HomePage homePage = null;
 	@BeforeSuite
 	public void setup(){
 
@@ -50,23 +51,25 @@ public class FreechargeAppTests extends DriverInitialization {
 		}
 
 		Thread.sleep(10000);
-         // Registration page tests
+		// Registration page tests
 		/*reg.registerClick();
 		reg.registration();*/
-		
-		//Singn page Tests
-		
+
+		//SignIn page Tests
+
 		//signIn.Login();
 		//signOut.Logout();
 		// Forgot Password Tests
-		signIn.ForgotPassword();
-		
+		//signIn.ForgotPassword();
+		homePage.accountDetails();
+		homePage.addAddress();
 
 	}
 	@AfterTest
 	public void closeConnections()
 	{
 		mpage.quit();
+		
 	}
 
 }

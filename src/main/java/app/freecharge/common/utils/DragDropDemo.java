@@ -2,14 +2,15 @@ package app.freecharge.common.utils;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 
-import org.junit.Test;
+
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
 import io.appium.java_client.android.AndroidDriver;
 
 public class DragDropDemo {
