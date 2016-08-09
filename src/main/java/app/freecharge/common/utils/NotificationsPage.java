@@ -1,4 +1,4 @@
-package app.freecharge.common.utils;
+/*package app.freecharge.common.utils;
 
 import org.openqa.selenium.support.FindBy;
 
@@ -120,3 +120,4 @@ public class NotificationsPage  extends DriverInitialization{
 	    }
 	}
 }
+*/

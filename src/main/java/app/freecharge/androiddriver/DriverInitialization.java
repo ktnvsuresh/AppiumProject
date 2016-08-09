@@ -9,7 +9,10 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.Select;
+
 import app.freecharge.common.utils.ByLocator;
 import io.appium.java_client.android.AndroidDriver;
 import org.apache.log4j.Logger;
@@ -41,8 +44,8 @@ public class DriverInitialization {
 		DesiredCapabilities caps=new DesiredCapabilities();
 		try{
 
-			//caps.setCapability("deviceName", "emulator-5554");
-			caps.setCapability("deviceName", "acd2ccd3");
+			caps.setCapability("deviceName", "emulator-5554");
+			//caps.setCapability("deviceName", "acd2ccd3");
 			caps.setCapability("platformName", "Android");
 			caps.setCapability("platformVersion", "6.1");
 			caps.setCapability("appPackage", "com.freecharge.android");
@@ -50,6 +53,8 @@ public class DriverInitialization {
 			driver=new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), caps);
 			driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 			isdriverinitialized=true;
+			Actions actions = new Actions(driver);
+			actions.moveToElement(driver.findElement(By.id("action_bar_title"))).build().perform();
 		}catch(Exception e){
 
 		}
@@ -111,7 +116,7 @@ public class DriverInitialization {
 	}
 
 	public void select_CheckBox(String locator){
-		WebElement checkBox= driver.findElement(By.name(locator));
+		WebElement checkBox= driver.findElement(By.id(locator));
 		try {
 			if (checkBox.isSelected()) {
 				logger.info("Checkbox: " + checkBox + "is already selected");
@@ -126,7 +131,7 @@ public class DriverInitialization {
 	}
 
 	public void deSelect_CheckBox(String locator){
-		WebElement checkBox= driver.findElement(By.name(locator));
+		WebElement checkBox= driver.findElement(By.id(locator));
 		try {
 			if (checkBox.isSelected()) {
 				checkBox.click();
@@ -142,9 +147,12 @@ public class DriverInitialization {
 	}
 
 	public void dropDown_Select(String locator, String value){
+	/*	WebElement selectdropdown = driver.findElement(By.id(locator));
+		Select select = new Select(selectdropdown);
+		select.selectByVisibleText(value);*/
 		if(locator!=null){
-			driver.scrollToExact(locator);
-			driver.findElementByName(value).click();	
+			driver.scrollToExact(locator).click();
+			driver.scrollTo(value).click();
 		}
 		else
 			logger.error("Failed to find Locator: "+driver.findElement(By.id(locator)));

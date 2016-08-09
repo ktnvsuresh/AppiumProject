@@ -38,6 +38,7 @@ public class FreechargeAppTests extends DriverInitialization {
 		appActions = new AppiumStartAndStop();
 		signIn = new SignInPage();
 		signOut = new SignOutPage();
+		homePage = new HomePage();
 
 	}
 
