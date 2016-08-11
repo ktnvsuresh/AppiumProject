@@ -184,5 +184,15 @@ public class DriverInitialization {
 
 	}
 
+	public void viewTransactionHistory() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void myAccountDetails() {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }
