@@ -147,16 +147,13 @@ public class DriverInitialization {
 	}
 
 	public void dropDown_Select(String locator, String value){
-	/*	WebElement selectdropdown = driver.findElement(By.id(locator));
-		Select select = new Select(selectdropdown);
-		select.selectByVisibleText(value);*/
 		if(locator!=null){
 			driver.scrollToExact(locator).click();
 			driver.scrollTo(value).click();
 		}
 		else
 			logger.error("Failed to find Locator: "+driver.findElement(By.id(locator)));
-		
+
 	}
 
 	public void ForgotPassword() {

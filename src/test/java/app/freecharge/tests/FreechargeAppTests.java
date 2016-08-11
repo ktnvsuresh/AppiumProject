@@ -2,13 +2,11 @@ package app.freecharge.tests;
 
 import java.io.IOException;
 
-import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 import app.freecharge.androiddriver.DriverInitialization;
-import app.freecharge.common.utils.AppiumStartAndStop;
 import app.freecharge.pageobjects.HomePage;
 import app.freecharge.pageobjects.MainActivityPage;
 import app.freecharge.pageobjects.RegisterationPage;
@@ -24,18 +22,19 @@ public class FreechargeAppTests extends DriverInitialization {
 
 
 	public RegisterationPage reg = null;
-	public AppiumStartAndStop appActions = null;
+	//public AppiumStartAndStop appActions = null;
 	public MainActivityPage mpage = null;
 	public SignInPage signIn=null;
 	public SignOutPage signOut=null;
 	public ResetPasswordPage restPassword = null;
 	public HomePage homePage = null;
+
 	@BeforeSuite
 	public void setup(){
 
 		mpage = new MainActivityPage();
 		reg=new RegisterationPage();
-		appActions = new AppiumStartAndStop();
+		//appActions = new AppiumStartAndStop();
 		signIn = new SignInPage();
 		signOut = new SignOutPage();
 		homePage = new HomePage();
@@ -70,7 +69,7 @@ public class FreechargeAppTests extends DriverInitialization {
 	public void closeConnections()
 	{
 		mpage.quit();
-		
+
 	}
 
 }
