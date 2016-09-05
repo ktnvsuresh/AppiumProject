@@ -5,10 +5,10 @@ import java.io.IOException;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
-
 import app.freecharge.androiddriver.DriverInitialization;
 import app.freecharge.pageobjects.HomePage;
 import app.freecharge.pageobjects.MainActivityPage;
+import app.freecharge.pageobjects.ProfilePage;
 import app.freecharge.pageobjects.RegisterationPage;
 import app.freecharge.pageobjects.ResetPasswordPage;
 import app.freecharge.pageobjects.SignInPage;
@@ -29,6 +29,8 @@ public class FreechargeAppTests extends DriverInitialization {
 	public ResetPasswordPage restPassword = null;
 	public HomePage homePage = null;
 
+	public ProfilePage profilePage = null;
+
 	@BeforeSuite
 	public void setup(){
 
@@ -38,6 +40,7 @@ public class FreechargeAppTests extends DriverInitialization {
 		signIn = new SignInPage();
 		signOut = new SignOutPage();
 		homePage = new HomePage();
+		profilePage = new ProfilePage();
 
 	}
 
@@ -61,8 +64,11 @@ public class FreechargeAppTests extends DriverInitialization {
 		//signOut.Logout();
 		// Forgot Password Tests
 		//signIn.ForgotPassword();
-		homePage.accountDetails();
-		homePage.addAddress();
+		//homePage.accountDetails();
+		//homePage.addAddress();
+		
+		profilePage.profileClick();
+		profilePage.accountDetails();
 
 	}
 	@AfterTest

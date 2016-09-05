@@ -44,8 +44,8 @@ public class DriverInitialization {
 		DesiredCapabilities caps=new DesiredCapabilities();
 		try{
 
-			caps.setCapability("deviceName", "emulator-5554");
-			//caps.setCapability("deviceName", "acd2ccd3");
+			//caps.setCapability("deviceName", "emulator-5554");
+			caps.setCapability("deviceName", "acd2ccd3");
 			caps.setCapability("platformName", "Android");
 			caps.setCapability("platformVersion", "6.1");
 			caps.setCapability("appPackage", "com.freecharge.android");
@@ -179,6 +179,16 @@ public class DriverInitialization {
 	public void addAddress() {
 		// TODO Auto-generated method stub
 
+	}
+
+	public void viewTransactionHistory() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void myAccountDetails() {
+		// TODO Auto-generated method stub
+		
 	}
 
 
