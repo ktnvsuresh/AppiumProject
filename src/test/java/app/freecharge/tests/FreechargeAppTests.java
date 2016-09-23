@@ -67,9 +67,10 @@ public class FreechargeAppTests extends DriverInitialization {
 		//homePage.accountDetails();
 		//homePage.addAddress();
 		
-		profilePage.profileClick();
-		profilePage.accountDetails();
+		//profilePage.profileClick();
+		//profilePage.accountDetails();
 
+		signIn.FaceBookLogin();
 	}
 	@AfterTest
 	public void closeConnections()

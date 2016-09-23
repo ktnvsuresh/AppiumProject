@@ -35,13 +35,20 @@ public class SignInPage extends DriverInitialization{
 	@Override
 	public void FaceBookLogin()
 	{
-
-
+		clickButton(ByLocator.id, "com.freecharge.android:id/facebook_signin_btn");
+		clickButton(ByLocator.id, "com.facebook.katana:id/login_bottom_first_link");
+		typeEditBox(ByLocator.id, "com.facebook.katana:id/login_username","mapptestauto@gmail.com");
+		typeEditBox(ByLocator.id, "com.facebook.katana:id/login_password","appium@123");
+		clickButton(ByLocator.id, "com.facebook.katana:id/login_login");
+		
+		typeEditBox(ByLocator.id, "com.freecharge.android:id/mobile_number","");
+		clickButton(ByLocator.id, "com.freecharge.android:id/mobile_confirm_continue");
+		adb shell input keyevent KEYCODE_APP_SWITCH
 	}
 
 	public void GoogleLogin()
 	{
-
+		clickButton(ByLocator.id, "com.freecharge.android:id/social_signin_layout");
 
 
 	}
