@@ -86,7 +86,7 @@ public class DriverInitialization {
 	}
 
 
-	public static void clickButton(ByLocator locatorType,String locator)
+	public static void clickButton(ByLocator locatorType, String locator)
 	{
 		if(driver.findElement(By.id(locator))!=null)
 		{
@@ -96,6 +96,9 @@ public class DriverInitialization {
 				break;
 			case name:
 				driver.findElement(By.name(locator)).click();
+				break;
+			case text:
+				//driver.findElement(name(locator)).click();
 				break;
 
 			default:
@@ -146,6 +149,15 @@ public class DriverInitialization {
 		}
 	}
 
+	public void radioButton(String locator){
+		WebElement radioButton= driver.findElementByName((locator));
+		try {
+			radioButton.click();
+		}
+		catch (Exception e) {
+			logger.error("Unable to select the Radiobutton: " + radioButton);
+		}
+	}
 	public void dropDown_Select(String locator, String value){
 		if(locator!=null){
 			driver.scrollToExact(locator).click();
@@ -155,7 +167,12 @@ public class DriverInitialization {
 			logger.error("Failed to find Locator: "+driver.findElement(By.id(locator)));
 
 	}
-
+	
+	public void popupClose(){
+	if(driver.findElement(By.id("com.freecharge.android:id/frag_web_view"))!=null)
+		clickButton(ByLocator.id, "com.freecharge.android:id/splash_message_close");
+	}
+	
 	public void ForgotPassword() {
 		// TODO Auto-generated method stub
 
@@ -165,7 +182,11 @@ public class DriverInitialization {
 		// TODO Auto-generated method stub
 
 	}
+	
+	public void GoogleLogin() {
+		// TODO Auto-generated method stub
 
+	}
 	public void Login() throws InterruptedException {
 		// TODO Auto-generated method stub
 

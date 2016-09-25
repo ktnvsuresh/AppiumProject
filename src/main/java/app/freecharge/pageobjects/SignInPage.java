@@ -1,5 +1,9 @@
 package app.freecharge.pageobjects;
 
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.interactions.internal.MouseAction.Button;
+
 import app.freecharge.androiddriver.DriverInitialization;
 import app.freecharge.common.utils.ByLocator;
 
@@ -10,7 +14,7 @@ public class SignInPage extends DriverInitialization{
 	}
 
 	public ResetPasswordPage resetPassword = null;
-	
+
 	@Override
 	public void Login() throws InterruptedException
 	{
@@ -18,6 +22,7 @@ public class SignInPage extends DriverInitialization{
 		typeEditBox(ByLocator.id,"com.freecharge.android:id/password_edit_text", "kowtha");
 		clickButton(ByLocator.id, "com.freecharge.android:id/login_button");
 		Thread.sleep(10000);
+		popupClose();
 	}
 
 	@Override
@@ -31,24 +36,22 @@ public class SignInPage extends DriverInitialization{
 		resetPassword.resetPassword(); 
 
 	}
-	
+
 	@Override
 	public void FaceBookLogin()
 	{
 		clickButton(ByLocator.id, "com.freecharge.android:id/facebook_signin_btn");
-		clickButton(ByLocator.id, "com.facebook.katana:id/login_bottom_first_link");
-		typeEditBox(ByLocator.id, "com.facebook.katana:id/login_username","mapptestauto@gmail.com");
-		typeEditBox(ByLocator.id, "com.facebook.katana:id/login_password","appium@123");
-		clickButton(ByLocator.id, "com.facebook.katana:id/login_login");
-		
-		typeEditBox(ByLocator.id, "com.freecharge.android:id/mobile_number","");
-		clickButton(ByLocator.id, "com.freecharge.android:id/mobile_confirm_continue");
-		adb shell input keyevent KEYCODE_APP_SWITCH
+		popupClose();
+
 	}
 
+	@Override
 	public void GoogleLogin()
 	{
-		clickButton(ByLocator.id, "com.freecharge.android:id/social_signin_layout");
+		clickButton(ByLocator.id, "com.freecharge.android:id/google_signin_btn");
+		radioButton("ramyamca1@gmail.com");
+		driver.findElement(By.name("OK")).click();
+		popupClose();
 
 
 	}

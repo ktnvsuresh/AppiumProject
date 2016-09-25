@@ -53,7 +53,7 @@ public class FreechargeAppTests extends DriverInitialization {
 			System.out.println("App installed");
 		}
 
-		Thread.sleep(10000);
+		Thread.sleep(1000);
 		// Registration page tests
 		/*reg.registerClick();
 		reg.registration();*/
@@ -70,7 +70,10 @@ public class FreechargeAppTests extends DriverInitialization {
 		//profilePage.profileClick();
 		//profilePage.accountDetails();
 
-		signIn.FaceBookLogin();
+		//signIn.FaceBookLogin();
+		//signOut.Logout();
+		//signIn.GoogleLogin();
+		signOut.Logout();
 	}
 	@AfterTest
 	public void closeConnections()
