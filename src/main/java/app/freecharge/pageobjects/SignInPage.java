@@ -14,6 +14,7 @@ public class SignInPage extends DriverInitialization{
 	}
 
 	public ResetPasswordPage resetPassword = null;
+	public NetworkConnectionsPage networkPage = null;
 
 	@Override
 	public void Login() throws InterruptedException
@@ -22,7 +23,7 @@ public class SignInPage extends DriverInitialization{
 		typeEditBox(ByLocator.id,"com.freecharge.android:id/password_edit_text", "kowtha");
 		clickButton(ByLocator.id, "com.freecharge.android:id/login_button");
 		Thread.sleep(10000);
-		popupClose();
+		//popupClose();
 	}
 
 	@Override
@@ -38,20 +39,23 @@ public class SignInPage extends DriverInitialization{
 	}
 
 	@Override
-	public void FaceBookLogin()
+	public void FaceBookLogin() throws InterruptedException
 	{
 		clickButton(ByLocator.id, "com.freecharge.android:id/facebook_signin_btn");
-		popupClose();
+		Thread.sleep(10000);
+		//popupClose();
 
 	}
 
 	@Override
-	public void GoogleLogin()
+	public void GoogleLogin() throws InterruptedException
 	{
+		//networkPage.networkConnections();
 		clickButton(ByLocator.id, "com.freecharge.android:id/google_signin_btn");
 		radioButton("ramyamca1@gmail.com");
 		driver.findElement(By.name("OK")).click();
-		popupClose();
+		Thread.sleep(10000);
+		//popupClose();
 
 
 	}

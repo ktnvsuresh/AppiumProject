@@ -1,5 +1,8 @@
 package app.freecharge.pageobjects;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
 import app.freecharge.androiddriver.DriverInitialization;
 
 
@@ -13,9 +16,13 @@ public class SignOutPage  extends DriverInitialization{
 
 	public void Logout() throws InterruptedException{
 
-		//driver.findElementByClassName("android.widget.ImageButton").click();
-		//clickLink("More");
-		driver.findElementById("com.freecharge.android:id/action_bar_title").click();
-		mpage.signOut();
+		driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/title_text') and @text='More']")).click();
+		//mpage.signOut();
+		result = null;
+		result = driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/title_text') and @text='More']")).getText();
+		assert result.equals("More"):"Expected value: More:" + result;
+		driver.scrollTo("Sign out");
+		driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/title') and @text='Sign out']") ).click();
 	}
+	
 }

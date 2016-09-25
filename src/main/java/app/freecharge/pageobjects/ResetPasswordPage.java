@@ -9,7 +9,8 @@ public class ResetPasswordPage extends DriverInitialization{
 		super();
 		
 	}
-
+	
+	@Override
 	public void resetPassword(){
 		try{
 			typeEditBox(ByLocator.id,"com.freecharge.android:id/forgot_enter_pwd_box", "xxxxxxxxx");

@@ -26,7 +26,7 @@ public class DriverInitialization {
 	public static AndroidDriver driver;
 	public static boolean isdriverinitialized;
 	public static Logger logger = Logger.getLogger(DriverInitialization.class);
-
+	public String result =null;	
 
 	public DriverInitialization(){
 		initElements();
@@ -167,23 +167,26 @@ public class DriverInitialization {
 			logger.error("Failed to find Locator: "+driver.findElement(By.id(locator)));
 
 	}
-	
+
 	public void popupClose(){
-	if(driver.findElement(By.id("com.freecharge.android:id/frag_web_view"))!=null)
-		clickButton(ByLocator.id, "com.freecharge.android:id/splash_message_close");
+		//if(driver.findElement(By.id("com.freecharge.android:id/frag_web_view"))!=null){
+		if(driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/frag_web_view')]"))!=null){
+			clickButton(ByLocator.id, "com.freecharge.android:id/splash_message_close");
+
+		}
 	}
-	
+
 	public void ForgotPassword() {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void FaceBookLogin() {
+	public void FaceBookLogin() throws InterruptedException {
 		// TODO Auto-generated method stub
 
 	}
-	
-	public void GoogleLogin() {
+
+	public void GoogleLogin() throws InterruptedException{
 		// TODO Auto-generated method stub
 
 	}
@@ -192,24 +195,55 @@ public class DriverInitialization {
 
 	}
 
-	public void accountDetails() {
+	public void addAddress() throws InterruptedException{
 		// TODO Auto-generated method stub
 
 	}
 
-	public void addAddress() {
+	public void viewTransactionHistory() throws InterruptedException{
 		// TODO Auto-generated method stub
 
 	}
 
-	public void viewTransactionHistory() {
+	public void myAccountDetails() throws InterruptedException{
 		// TODO Auto-generated method stub
-		
+
 	}
 
-	public void myAccountDetails() {
+	public void Logout() throws InterruptedException {
 		// TODO Auto-generated method stub
-		
+
+	}
+
+	public void signOut() {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void quit() {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void resetPassword() {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void enableInterNet(boolean isEnabled) {
+		// TODO Auto-generated method stub
+
+	}
+
+
+	public void networkConnections() throws InterruptedException {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void productdetails() throws InterruptedException {
+		// TODO Auto-generated method stub
+
 	}
 
 
