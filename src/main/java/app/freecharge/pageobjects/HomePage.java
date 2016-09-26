@@ -1,11 +1,8 @@
 package app.freecharge.pageobjects;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-
 import app.freecharge.androiddriver.DriverInitialization;
-import app.freecharge.common.utils.ByLocator;
+
 
 public class HomePage extends DriverInitialization{		
 

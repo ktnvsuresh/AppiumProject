@@ -1,12 +1,10 @@
 package app.freecharge.pageobjects;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
 import app.freecharge.androiddriver.DriverInitialization;
 
 
-public class SignOutPage  extends DriverInitialization{		
+public class SignOutPage extends DriverInitialization{		
 
 	public SignOutPage() {
 		super();

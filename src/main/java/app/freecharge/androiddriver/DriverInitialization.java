@@ -3,16 +3,17 @@
  */
 package app.freecharge.androiddriver;
 
-import java.net.MalformedURLException;
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
-
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.support.ui.Select;
-
 import app.freecharge.common.utils.ByLocator;
 import io.appium.java_client.android.AndroidDriver;
 import org.apache.log4j.Logger;
@@ -27,21 +28,30 @@ public class DriverInitialization {
 	public static boolean isdriverinitialized;
 	public static Logger logger = Logger.getLogger(DriverInitialization.class);
 	public String result =null;	
-
+	public Process p,p1;
+	public String cmd="adb install D:/Softwares/APPIUM/Sample_apk_files/FreeCharge.apk";
+	public String nodePath = "C:/Appium/node.exe"; // Set path of your node.exe file.
+	// Set path of your appium.js file.
+	public String appiumJSPath = "C:/Appium/node_modules/appium/bin/appium.js";
+	public String cmd1 = nodePath + " " + appiumJSPath;
+	
+	
 	public DriverInitialization(){
+		
 		initElements();
 	}
 
-	public void initElements(){
+	public void initElements() {
 		if(!isdriverinitialized)
 			initializeDriver();
 		else
 			logger.info("App is already opened");
 	}
 
-	public void initializeDriver(){
+	public void initializeDriver() {
 
 		DesiredCapabilities caps=new DesiredCapabilities();
+		
 		try{
 
 			//caps.setCapability("deviceName", "emulator-5554");
@@ -57,6 +67,37 @@ public class DriverInitialization {
 			actions.moveToElement(driver.findElement(By.id("action_bar_title"))).build().perform();
 		}catch(Exception e){
 
+		}
+	}
+	
+
+	// This method Is responsible for starting appium server.
+	public void appiumStart() throws IOException, InterruptedException {
+		// Execute command string to start appium server.
+		p1 = Runtime.getRuntime().exec(cmd1);
+		Thread.sleep(10000);
+		if (p1 != null) {
+			System.out.println("Appium server Is started now.");
+		}
+	}
+
+	// This method Is responsible for stopping appium server.
+	public void appiumStop() throws IOException, InterruptedException {
+		if (p1 != null) {
+			p1.destroy();
+		}
+		System.out.println("Appium server Is stopped now.");
+		Thread.sleep(10000);
+	}
+	
+
+	public void appInstallation() throws IOException
+	{
+
+		p=Runtime.getRuntime().exec(cmd);
+		if(p!=null)
+		{
+			System.out.println("App installed");
 		}
 	}
 
@@ -176,7 +217,14 @@ public class DriverInitialization {
 		}
 	}
 
-	public void ForgotPassword() {
+	public static void takescreenshot(String filename) throws IOException{
+		String outputfile = System.getProperty("user.dir")+"/Screenshots/"+filename;
+		logger.info("Taking the screenshot into a file: "+outputfile);
+		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(scrFile, new File(outputfile));
+	}
+
+	public void ForgotPassword() throws InterruptedException {
 		// TODO Auto-generated method stub
 
 	}

@@ -1,6 +1,5 @@
 package app.freecharge.pageobjects;
 
-
 import app.freecharge.androiddriver.DriverInitialization;
 import io.appium.java_client.NetworkConnectionSetting;
 

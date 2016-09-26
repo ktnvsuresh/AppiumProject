@@ -1,15 +1,14 @@
 package app.freecharge.pageobjects;
 
-import org.openqa.selenium.By;
-import org.testng.ITestListener;
 
+import org.openqa.selenium.By;
 import app.freecharge.androiddriver.DriverInitialization;
 import app.freecharge.common.utils.ByLocator;
 
 public class ProfilePage extends DriverInitialization{		
 
 
-	public ProfilePage() {
+	public ProfilePage(){
 		super();
 
 	}

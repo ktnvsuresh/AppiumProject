@@ -54,7 +54,7 @@ public class ScreenshotUtility implements ITestListener {
   String destDir = "";
   String passfailMethod = result.getMethod().getRealClass().getSimpleName() + "." + result.getMethod().getMethodName();
   // To capture screenshot.
-  File scrFile = ((TakesScreenshot) FreechargeAppTests.driver).getScreenshotAs(OutputType.FILE);
+  File scrFile = ((TakesScreenshot)FreechargeAppTests.driver).getScreenshotAs(OutputType.FILE);
   DateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy__hh_mm_ssaa");
   // If status = fail then set folder name "screenshots/Failures"
   if (status.equalsIgnoreCase("fail")) {

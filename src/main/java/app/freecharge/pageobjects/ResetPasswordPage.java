@@ -1,11 +1,12 @@
 package app.freecharge.pageobjects;
 
+
 import app.freecharge.androiddriver.DriverInitialization;
 import app.freecharge.common.utils.ByLocator;
 
 public class ResetPasswordPage extends DriverInitialization{
 
-	public ResetPasswordPage() {
+	public ResetPasswordPage(){
 		super();
 		
 	}

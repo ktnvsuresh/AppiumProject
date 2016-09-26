@@ -1,7 +1,6 @@
 package app.freecharge.pageobjects;
 
 import org.openqa.selenium.By;
-
 import app.freecharge.androiddriver.DriverInitialization;
 
 public class ProductDetailsPage extends DriverInitialization {

@@ -2,13 +2,10 @@ package app.freecharge.tests;
 
 import java.io.IOException;
 
-import org.openqa.selenium.By;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import app.freecharge.androiddriver.DriverInitialization;
-import app.freecharge.common.utils.ScreenshotUtility;
 import app.freecharge.pageobjects.HomePage;
 import app.freecharge.pageobjects.MainActivityPage;
 import app.freecharge.pageobjects.NetworkConnectionsPage;
@@ -19,7 +16,6 @@ import app.freecharge.pageobjects.ResetPasswordPage;
 import app.freecharge.pageobjects.SignInPage;
 import app.freecharge.pageobjects.SignOutPage;
 
-@Listeners({ ScreenshotUtility.class })
 public class FreechargeAppTests extends DriverInitialization {
 
 	Process p;
@@ -39,8 +35,9 @@ public class FreechargeAppTests extends DriverInitialization {
 	public ProfilePage profilePage = null;
 
 	@BeforeSuite
-	public void setup(){
-
+	public void setup() throws IOException, InterruptedException{
+		//appiumStop();
+		//appiumStart();
 		mpage = new MainActivityPage();
 		reg=new RegisterationPage();
 		//appActions = new AppiumStartAndStop();
@@ -52,43 +49,76 @@ public class FreechargeAppTests extends DriverInitialization {
 		productDetailspage = new ProductDetailsPage();
 	}
 
+
 	@Test
-	public void testCMD() throws IOException, InterruptedException
+	public void Test_appInstallation() throws InterruptedException, IOException
 	{
 
-		/*p=Runtime.getRuntime().exec(cmd);
-		if(p!=null)	{
-			System.out.println("App installed");
-		}*/
+		//appInstallation();
 
-		Thread.sleep(500);
+	}
+
+
+	@Test
+	public void Test_registrationPage() throws IOException, InterruptedException
+	{
+
+		Thread.sleep(1000);
 		// Registration page tests
-		/*reg.registerClick();
-		reg.registration();*/
+		//reg.registerClick();
+		reg.registration();
+	}
 
+	@Test
+	public void Test_LoginPage() throws IOException, InterruptedException
+	{
 		//SignIn page Tests
+		signIn.Login();
+		signOut.Logout();
+	}
 
-		//signIn.Login();
-		//signOut.Logout();
+	@Test
+	public void Test_forgotPasswordPage() throws IOException, InterruptedException
+	{
 		// Forgot Password Tests
-		//signIn.ForgotPassword();
+		signIn.ForgotPassword();
 		//homePage.accountDetails();
 		//homePage.addAddress();
+	}
 
-		//profilePage.profileClick();
-		//profilePage.accountDetails();
+	@Test
+	public void Test_profilePage() throws IOException, InterruptedException
+	{	
+		profilePage.myAccountDetails();
+		profilePage.addAddress();
+		profilePage.viewTransactionHistory();
+	}
 
-		//signIn.FaceBookLogin();
-		//signOut.Logout();
-		//signIn.GoogleLogin();
-		//profilePage.profileClick();
-		//profilePage.myAccountDetails();
-		//profilePage.addAddress();
-		//profilePage.viewTransactionHistory();
-		//signOut.Logout();
+	@Test
+	public void Test_facebookLogin() throws IOException, InterruptedException
+	{	
 
+		signIn.FaceBookLogin();
+		signOut.Logout();
+	}
+
+	@Test
+	public void Test_gmailLogin() throws IOException, InterruptedException
+	{	
+
+		signIn.GoogleLogin();
+		signOut.Logout();
+
+
+	}
+
+
+	@Test
+	public void Test_productDetailspage() throws IOException, InterruptedException
+	{
 		productDetailspage.productdetails();
 	}
+
 	@AfterTest
 	public void closeConnections()
 	{
