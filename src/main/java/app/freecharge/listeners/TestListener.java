@@ -21,21 +21,21 @@ public class TestListener extends TestListenerAdapter {
 	public void onTestStart(ITestResult result) {
 		// TODO Auto-generated method stub
 		super.onTestStart(result);
-		System.out.println("Inside Test Start Method" +result.getMethod().getMethodName());
+		System.out.println("Inside Test Start Method " + result.getMethod().getMethodName());
 		test = report.startTest(result.getMethod().getMethodName());
 		test.log(LogStatus.INFO, "Name: "+result.getName());
 		//test.log(LogStatus.INFO, "TestName from TestClass : "+result.getTestClass().getTestName());
 		//test.log(LogStatus.INFO, "Test Name: "+result.getTestName());
 		//test.log(LogStatus.INFO, "Test Class Name: "+result.getTestClass().getName());
 		test.assignCategory("FreechargeApp Tests");
-		test.log(LogStatus.INFO, "Started Executing Test:"+result.getMethod().getMethodName());
+		test.log(LogStatus.INFO, "Started Executing Test: "+ result.getMethod().getMethodName());
 	}
 
 	@Override
 	public void onTestFailure(ITestResult tr) {
 		String filename = tr.getMethod().getMethodName()+System.currentTimeMillis()+".jpg";
 		super.onTestFailure(tr);
-		System.out.println("Inside Test Failure Method" +tr.getMethod().getMethodName());
+		System.out.println("Inside Test Failure Method " + tr.getMethod().getMethodName());
 		test.log(LogStatus.ERROR, tr.getThrowable().getMessage());
 		try {
 			DriverInitialization.takescreenshot(filename);
@@ -53,7 +53,7 @@ public class TestListener extends TestListenerAdapter {
 		// TODO Auto-generated method stub
 		String filename = tr.getMethod().getMethodName()+System.currentTimeMillis()+".jpg";
 		super.onTestSuccess(tr);
-		System.out.println("Inside Test Success Method");
+		System.out.println("Inside Test Success Method " +tr.getMethod().getMethodName());
 		test.log(LogStatus.PASS, tr.getName()+" succesfully passed");
 		try {
 			DriverInitialization.takescreenshot(filename);
