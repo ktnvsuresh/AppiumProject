@@ -21,6 +21,7 @@ public class SignOutPage extends DriverInitialization{
 		assert result.equals("More"):"Expected value: More:" + result;
 		driver.scrollTo("Sign out");
 		driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/title') and @text='Sign out']") ).click();
+		System.out.println("User Successfully LoggedOut");
 	}
 	
 }

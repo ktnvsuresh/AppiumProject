@@ -15,7 +15,7 @@ public class ProductDetailsPage extends DriverInitialization {
 		driver.findElement(By.name("Shopping")).click();
 		Thread.sleep(5000);
 		driver.findElement(By.xpath("//android.view.View[@index = '2']")).click();
-
+		System.out.println("Product Details validation completed");
 	}
 
 

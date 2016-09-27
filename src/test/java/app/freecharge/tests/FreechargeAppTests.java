@@ -62,7 +62,7 @@ public class FreechargeAppTests extends DriverInitialization {
 	}
 
 
-	@Test
+	/*@Test
 	public void Test_registrationPage() throws IOException, InterruptedException
 	{
 
@@ -121,6 +121,7 @@ public class FreechargeAppTests extends DriverInitialization {
 
 		signIn.Login();
 		offerspage.horizontalScroll();
+		homePage.homeClick();
 		signOut.Logout();
 
 
@@ -131,8 +132,16 @@ public class FreechargeAppTests extends DriverInitialization {
 	public void Test_productDetailspage() throws IOException, InterruptedException
 	{
 		productDetailspage.productdetails();
-	}
+	}*/
 
+	@Test
+	public void Test_networkConnection() throws InterruptedException, IOException
+	{
+
+		networkPage.networkConnections();
+		
+	}
+	
 	@AfterTest
 	public void closeConnections()
 	{

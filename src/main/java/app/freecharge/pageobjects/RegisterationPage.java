@@ -27,7 +27,7 @@ public class RegisterationPage extends DriverInitialization{
 		typeEditBox(ByLocator.id,"com.freecharge.android:id/reg_password", "xxxxxxxxx");
 		clickButton(ByLocator.name, "SIGN UP");
 		//System.out.println(driver.switchTo().alert().getText());
-		
+		System.out.println("Registration screen validation completed");
 		}catch(Exception e){
 			
 		}

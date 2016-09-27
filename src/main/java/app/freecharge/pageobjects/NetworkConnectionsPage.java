@@ -13,7 +13,7 @@ public class NetworkConnectionsPage extends DriverInitialization
 
 	
 	//Script for enable and disable the network connections through appium
-	
+	@Override
 	public void networkConnections() throws InterruptedException {
 		try{
 			// Identify Network status

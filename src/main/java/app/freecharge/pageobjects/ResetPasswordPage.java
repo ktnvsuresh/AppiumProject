@@ -18,6 +18,7 @@ public class ResetPasswordPage extends DriverInitialization{
 			typeEditBox(ByLocator.id,"com.freecharge.android:id/forgot_reenter_pwd_box", "xxxxxxxxx");
 			typeEditBox(ByLocator.id,"com.freecharge.android:id/forgot_pwd_code_box", "xxxx");
 			clickButton(ByLocator.id, "com.freecharge.android:id/forgot_reset_submit");
+			System.out.println("Reset Password screen validation completed");
 		}catch(Exception e){
 
 		}

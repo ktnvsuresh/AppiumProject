@@ -2,6 +2,9 @@ package app.freecharge.pageobjects;
 
 
 import org.openqa.selenium.By;
+
+import com.relevantcodes.extentreports.LogStatus;
+
 import app.freecharge.androiddriver.DriverInitialization;
 import app.freecharge.common.utils.ByLocator;
 
@@ -24,6 +27,8 @@ public class SignInPage extends DriverInitialization{
 		result = null;
 		result = driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/action_bar_title') and @text='Suresh']")).getText();
 		assert result.equals("Suresh"):"Expected value: Suresh:" + result;
+		System.out.println("User Successfully Loggedin");
+		
 		//popupClose();
 	}
 
@@ -43,6 +48,7 @@ public class SignInPage extends DriverInitialization{
 		result = null;
 		result = driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/reset_pwd_err') and @text='Password must contain at least one digit and atleast one alphabet']")).getText();
 		assert result.equals("Password must contain at least one digit and atleast one alphabet"):"Expected value: password confirmPassword mismatch:" + result;
+		System.out.println("Forgot Password screen validation completed");
 	}
 
 	@Override
@@ -54,7 +60,7 @@ public class SignInPage extends DriverInitialization{
 		result = null;
 		result = driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/action_bar_title') and @text='Ramya Suresh']")).getText();
 		assert result.equals("Ramya Suresh"):"Expected value: Ramya Suresh:" + result;
-		
+		System.out.println("User Successfully Loggedin with Facebook ID");
 
 	}
 
@@ -70,6 +76,6 @@ public class SignInPage extends DriverInitialization{
 		result = null;
 		result = driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/action_bar_title') and @text='Ramya Suresh']")).getText();
 		assert result.equals("Ramya Suresh"):"Expected value: Ramya Suresh:" + result;
-
+		System.out.println("User Successfully Loggedin with Goole ID");
 	}
 }

@@ -51,9 +51,18 @@ public class TestListener extends TestListenerAdapter {
 	@Override
 	public void onTestSuccess(ITestResult tr) {
 		// TODO Auto-generated method stub
+		String filename = tr.getMethod().getMethodName()+System.currentTimeMillis()+".jpg";
 		super.onTestSuccess(tr);
 		System.out.println("Inside Test Success Method");
 		test.log(LogStatus.PASS, tr.getName()+" succesfully passed");
+		try {
+			DriverInitialization.takescreenshot(filename);
+			String imagepath = test.addScreenCapture(System.getProperty("user.dir")+"\\Screenshots\\"+filename);
+			test.log(LogStatus.INFO, "Screenshot of the Page when this test succesfully passed.."+imagepath);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		report.endTest(test);
 	}
 

@@ -14,5 +14,6 @@ public class HomePage extends DriverInitialization{
 	{
 		driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/title_text') and @text='Home']") ).click();
 		Thread.sleep(5000);
+		System.out.println("Home Button Functioned Successfully");
 	}
 }

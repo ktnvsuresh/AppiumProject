@@ -22,5 +22,6 @@ public class OffersPage extends DriverInitialization{
 		driver.findElement(By.xpath("//android.view.View[@index = '1']")).click();
 		driver.findElement(By.xpath("//android.view.View[@index = '2']")).click();
 		driver.findElement(By.xpath("//android.view.View[@index = '3']")).click();
+		System.out.println("Offers button functioned and Horizontal scroll validation completed");
 	}
 }

@@ -32,6 +32,7 @@ public class ProfilePage extends DriverInitialization{
 		result = driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/action_bar_title') and @text='Account Details']")).getText();
 		assert result.equals("Account Details"):"Expected value: Account Details:" + result;
 		driver.findElementByClassName("android.widget.ImageButton").click();
+		System.out.println("My Account Details screen validation completed");
 	}
 
 	@Override
@@ -45,6 +46,7 @@ public class ProfilePage extends DriverInitialization{
 		result = driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/action_bar_title') and @text='Transactions']")).getText();
 		assert result.equals("Transactions"):"Expected value: Transactions:" + result;
 		driver.findElementByClassName("android.widget.ImageButton").click();
+		System.out.println("View Transaction History screen validation completed");
 	}
 	
 	@Override
@@ -71,7 +73,7 @@ public class ProfilePage extends DriverInitialization{
 			select_CheckBox("home_checkbox");
 			driver.hideKeyboard();
 			clickButton(ByLocator.id, "add_new_submit_button");
-			System.out.println("Submit button functioned");
+			System.out.println("Address added Successfully");
 			Thread.sleep(10000);
 		}
 		catch(Exception e){
