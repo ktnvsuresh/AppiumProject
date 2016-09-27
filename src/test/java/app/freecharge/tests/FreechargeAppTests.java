@@ -2,10 +2,12 @@ package app.freecharge.tests;
 
 import java.io.IOException;
 
+import org.openqa.selenium.By;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 import app.freecharge.androiddriver.DriverInitialization;
+import app.freecharge.common.utils.ByLocator;
 import app.freecharge.pageobjects.HomePage;
 import app.freecharge.pageobjects.MainActivityPage;
 import app.freecharge.pageobjects.NetworkConnectionsPage;
@@ -13,9 +15,10 @@ import app.freecharge.pageobjects.OffersPage;
 import app.freecharge.pageobjects.ProductDetailsPage;
 import app.freecharge.pageobjects.ProfilePage;
 import app.freecharge.pageobjects.RegisterationPage;
-import app.freecharge.pageobjects.ResetPasswordPage;
+import app.freecharge.pageobjects.ForgotPasswordPage;
 import app.freecharge.pageobjects.SignInPage;
 import app.freecharge.pageobjects.SignOutPage;
+import io.appium.java_client.android.AndroidKeyCode;
 
 public class FreechargeAppTests extends DriverInitialization {
 
@@ -28,7 +31,7 @@ public class FreechargeAppTests extends DriverInitialization {
 	public MainActivityPage mpage = null;
 	public SignInPage signIn=null;
 	public SignOutPage signOut=null;
-	public ResetPasswordPage restPassword = null;
+	public ForgotPasswordPage forgotPassword = null;
 	public HomePage homePage = null;
 	public  NetworkConnectionsPage networkPage = null;
 	public ProductDetailsPage productDetailspage = null;
@@ -50,29 +53,27 @@ public class FreechargeAppTests extends DriverInitialization {
 		networkPage = new NetworkConnectionsPage();
 		productDetailspage = new ProductDetailsPage();
 		offerspage = new OffersPage();
+		forgotPassword = new ForgotPasswordPage();
 	}
 
 
-	@Test
+
+	/*@Test (priority =9)
 	public void Test_appInstallation() throws InterruptedException, IOException
 	{
-
 		//appInstallation();
+	}*/
 
-	}
 
-
-	/*@Test
+	@Test (priority =8)
 	public void Test_registrationPage() throws IOException, InterruptedException
 	{
-
 		Thread.sleep(1000);
 		// Registration page tests
-		//reg.registerClick();
 		reg.registration();
 	}
 
-	@Test
+	@Test (priority =1)
 	public void Test_LoginPage() throws IOException, InterruptedException
 	{
 		//SignIn page Tests
@@ -80,68 +81,62 @@ public class FreechargeAppTests extends DriverInitialization {
 		signOut.Logout();
 	}
 
-	@Test
+	@Test (priority =2)
 	public void Test_forgotPasswordPage() throws IOException, InterruptedException
 	{
 		// Forgot Password Tests
-		signIn.ForgotPassword();
-		//homePage.accountDetails();
-		//homePage.addAddress();
+		forgotPassword.ForgotPassword();
 	}
 
-	@Test
+	@Test (priority =3)
 	public void Test_profilePage() throws IOException, InterruptedException
 	{	
+		//Profile page Tests
+		signIn.Login();
 		profilePage.myAccountDetails();
 		profilePage.addAddress();
 		profilePage.viewTransactionHistory();
+		signOut.Logout();
 	}
 
-	@Test
+	@Test (priority =4)
 	public void Test_facebookLogin() throws IOException, InterruptedException
-	{	
-
+	{	//FaceBook Login validation
 		signIn.FaceBookLogin();
 		signOut.Logout();
 	}
 
-	@Test
+	@Test (priority =5)
 	public void Test_gmailLogin() throws IOException, InterruptedException
-	{	
-
+	{	//Google ID login validation
 		signIn.GoogleLogin();
 		signOut.Logout();
-
-
 	}
-	
-	@Test
-	public void Test_horizontalScroll() throws IOException, InterruptedException
-	{	
 
+	@Test (priority =7)
+	public void Test_horizontalScroll() throws IOException, InterruptedException
+	{	//Horizontal Scroll validation
 		signIn.Login();
 		offerspage.horizontalScroll();
 		homePage.homeClick();
 		signOut.Logout();
-
-
 	}
 
 
-	@Test
+	@Test (priority =6)
 	public void Test_productDetailspage() throws IOException, InterruptedException
-	{
+	{ // Product Details Validation tests
+		signIn.Login();
 		productDetailspage.productdetails();
-	}*/
-
-	@Test
-	public void Test_networkConnection() throws InterruptedException, IOException
-	{
-
-		networkPage.networkConnections();
-		
+		signOut.Logout();
 	}
-	
+
+	@Test (priority =9)
+	public void Test_networkConnection() throws InterruptedException, IOException
+	{ // Disable Network and try to Login with Google ID and Enable Network
+		signIn.Login_WithOutNetwork();
+	}
+
 	@AfterTest
 	public void closeConnections()
 	{

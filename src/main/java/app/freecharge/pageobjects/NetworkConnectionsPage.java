@@ -11,7 +11,7 @@ public class NetworkConnectionsPage extends DriverInitialization
 		super();
 	}
 
-	
+
 	//Script for enable and disable the network connections through appium
 	@Override
 	public void networkConnections() throws InterruptedException {
@@ -22,16 +22,18 @@ public class NetworkConnectionsPage extends DriverInitialization
 			System.out.println(status);
 
 			// Turn off the WI-fI connection
-			if (!equals(status))
+			if (status == true)
 			{
 				enableInterNet(false);
 				Thread.sleep(2000);
 				System.out.println("Network connection Disabled");
 			}
-			// Turn On the WI-FI connection
-			enableInterNet(true);
-			Thread.sleep(2000);
-			System.out.println("Network connection Enabled");
+			else if (status == false){
+				// Turn On the WI-FI connection
+				enableInterNet(true);
+				Thread.sleep(2000);
+				System.out.println("Network connection Enabled");
+			}
 		}catch(Exception e){
 
 		}
@@ -47,4 +49,4 @@ public class NetworkConnectionsPage extends DriverInitialization
 	}
 
 
-	}
+}
