@@ -294,5 +294,10 @@ public class DriverInitialization {
 
 	}
 
+	public void horizontalScroll() throws InterruptedException {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }

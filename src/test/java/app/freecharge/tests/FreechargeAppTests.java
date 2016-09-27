@@ -9,6 +9,7 @@ import app.freecharge.androiddriver.DriverInitialization;
 import app.freecharge.pageobjects.HomePage;
 import app.freecharge.pageobjects.MainActivityPage;
 import app.freecharge.pageobjects.NetworkConnectionsPage;
+import app.freecharge.pageobjects.OffersPage;
 import app.freecharge.pageobjects.ProductDetailsPage;
 import app.freecharge.pageobjects.ProfilePage;
 import app.freecharge.pageobjects.RegisterationPage;
@@ -31,6 +32,7 @@ public class FreechargeAppTests extends DriverInitialization {
 	public HomePage homePage = null;
 	public  NetworkConnectionsPage networkPage = null;
 	public ProductDetailsPage productDetailspage = null;
+	public OffersPage offerspage=null;
 
 	public ProfilePage profilePage = null;
 
@@ -47,6 +49,7 @@ public class FreechargeAppTests extends DriverInitialization {
 		profilePage = new ProfilePage();
 		networkPage = new NetworkConnectionsPage();
 		productDetailspage = new ProductDetailsPage();
+		offerspage = new OffersPage();
 	}
 
 
@@ -107,6 +110,17 @@ public class FreechargeAppTests extends DriverInitialization {
 	{	
 
 		signIn.GoogleLogin();
+		signOut.Logout();
+
+
+	}
+	
+	@Test
+	public void Test_horizontalScroll() throws IOException, InterruptedException
+	{	
+
+		signIn.Login();
+		offerspage.horizontalScroll();
 		signOut.Logout();
 
 

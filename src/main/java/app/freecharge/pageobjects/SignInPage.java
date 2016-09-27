@@ -21,6 +21,9 @@ public class SignInPage extends DriverInitialization{
 		typeEditBox(ByLocator.id,"com.freecharge.android:id/password_edit_text", "kowtha");
 		clickButton(ByLocator.id, "com.freecharge.android:id/login_button");
 		Thread.sleep(10000);
+		result = null;
+		result = driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/action_bar_title') and @text='Suresh']")).getText();
+		assert result.equals("Suresh"):"Expected value: Suresh:" + result;
 		//popupClose();
 	}
 
@@ -48,6 +51,10 @@ public class SignInPage extends DriverInitialization{
 		clickButton(ByLocator.id, "com.freecharge.android:id/facebook_signin_btn");
 		Thread.sleep(10000);
 		//popupClose();
+		result = null;
+		result = driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/action_bar_title') and @text='Ramya Suresh']")).getText();
+		assert result.equals("Ramya Suresh"):"Expected value: Ramya Suresh:" + result;
+		
 
 	}
 
@@ -60,7 +67,9 @@ public class SignInPage extends DriverInitialization{
 		driver.findElement(By.name("OK")).click();
 		Thread.sleep(10000);
 		//popupClose();
-
+		result = null;
+		result = driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/action_bar_title') and @text='Ramya Suresh']")).getText();
+		assert result.equals("Ramya Suresh"):"Expected value: Ramya Suresh:" + result;
 
 	}
 }
