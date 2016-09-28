@@ -19,6 +19,7 @@ import app.freecharge.pageobjects.ForgotPasswordPage;
 import app.freecharge.pageobjects.SignInPage;
 import app.freecharge.pageobjects.SignOutPage;
 import io.appium.java_client.android.AndroidKeyCode;
+import org.apache.log4j.*;
 
 public class FreechargeAppTests extends DriverInitialization {
 
@@ -61,7 +62,7 @@ public class FreechargeAppTests extends DriverInitialization {
 	@Test (priority =1)
 	public void Test_appInstallation() throws InterruptedException, IOException
 	{
-		//appInstallation();
+		appInstallation();
 	}
 
 	@Test (priority =2)
