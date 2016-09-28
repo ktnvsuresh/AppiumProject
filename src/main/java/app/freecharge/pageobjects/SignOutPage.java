@@ -1,5 +1,6 @@
 package app.freecharge.pageobjects;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import app.freecharge.androiddriver.DriverInitialization;
 
@@ -10,7 +11,8 @@ public class SignOutPage extends DriverInitialization{
 		super();
 	}
 
-	public MainActivityPage mpage = null;
+	
+	Logger logger=Logger.getLogger(SignOutPage.class);
 
 	public void Logout() throws InterruptedException{
 
@@ -21,7 +23,7 @@ public class SignOutPage extends DriverInitialization{
 		assert result.equals("More"):"Expected value: More:" + result;
 		driver.scrollTo("Sign out");
 		driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/title') and @text='Sign out']") ).click();
-		System.out.println("User Successfully LoggedOut");
+		logger.info("User Successfully LoggedOut");
 	}
 	
 }

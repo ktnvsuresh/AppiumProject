@@ -1,6 +1,8 @@
 package app.freecharge.pageobjects;
 
 
+import org.apache.log4j.Logger;
+
 import app.freecharge.androiddriver.DriverInitialization;
 import app.freecharge.common.utils.ByLocator;
 
@@ -11,15 +13,11 @@ public class RegisterationPage extends DriverInitialization{
 		super();
 	}
 
-	public void registerClick()
-	{
-		//driver.findElementByName("REGISTER").click();
-		
-	}
-
+	Logger logger=Logger.getLogger(RegisterationPage.class);
+	
+	@Override
 	public void registration()
 	{
-		//clickButton(ByLocator.name, "REGISTER");
 		driver.findElementByName("REGISTER").click();
 		try{
 		typeEditBox(ByLocator.id,"com.freecharge.android:id/registration_name", "suresh");
@@ -29,7 +27,7 @@ public class RegisterationPage extends DriverInitialization{
 		driver.hideKeyboard();
 		clickButton(ByLocator.name, "SIGN UP");
 		//System.out.println(driver.switchTo().alert().getText());
-		System.out.println("Registration screen validation completed");
+		logger.info("Registration screen validation completed");
 		driver.findElementByName("SIGN IN").click();
 		}catch(Exception e){
 			

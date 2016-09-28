@@ -1,6 +1,7 @@
 package app.freecharge.pageobjects;
 
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -17,7 +18,7 @@ public class ProfilePage extends DriverInitialization{
 
 	}
 
-
+	Logger logger=Logger.getLogger(ProfilePage.class);
 	public void profileClick() throws InterruptedException
 	{
 		driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/title_text') and @text='Profile']") ).click();
@@ -36,8 +37,8 @@ public class ProfilePage extends DriverInitialization{
 		result = driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/action_bar_title') and @text='Account Details']")).getText();
 		assert result.equals("Account Details"):"Expected value: Account Details:" + result;
 		driver.findElementByClassName("android.widget.ImageButton").click();
-		System.out.println("Back button functioned");
-		System.out.println("My Account Details screen validation completed");
+		logger.info("Back button functioned");
+		logger.info("My Account Details screen validation completed");
 	}
 
 	@Override
@@ -51,7 +52,7 @@ public class ProfilePage extends DriverInitialization{
 		result = driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/action_bar_title') and @text='Transactions']")).getText();
 		assert result.equals("Transactions"):"Expected value: Transactions:" + result;
 		driver.findElementByClassName("android.widget.ImageButton").click();
-		System.out.println("View Transaction History screen validation completed");
+		logger.info("View Transaction History screen validation completed");
 	}
 
 	@Override
@@ -87,7 +88,7 @@ public class ProfilePage extends DriverInitialization{
 			driver.hideKeyboard();
 			select_CheckBox("home_checkbox");
 			clickButton(ByLocator.id, "add_new_submit_button");
-			System.out.println("Address added Successfully");
+			logger.info("Address added Successfully");
 			Thread.sleep(10000);
 			driver.sendKeyEvent(AndroidKeyCode.BACK);
 		}

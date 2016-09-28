@@ -1,5 +1,7 @@
 package app.freecharge.pageobjects;
 
+import org.apache.log4j.Logger;
+
 import app.freecharge.androiddriver.DriverInitialization;
 import io.appium.java_client.NetworkConnectionSetting;
 
@@ -11,7 +13,7 @@ public class NetworkConnectionsPage extends DriverInitialization
 		super();
 	}
 
-
+	Logger logger=Logger.getLogger(NetworkConnectionsPage.class); 
 	//Script for enable and disable the network connections through appium
 	@Override
 	public void networkConnections() throws InterruptedException {
@@ -26,13 +28,13 @@ public class NetworkConnectionsPage extends DriverInitialization
 			{
 				enableInterNet(false);
 				Thread.sleep(2000);
-				System.out.println("Network connection Disabled");
+				logger.info("Network connection Disabled");
 			}
 			else if (status == false){
 				// Turn On the WI-FI connection
 				enableInterNet(true);
 				Thread.sleep(2000);
-				System.out.println("Network connection Enabled");
+				logger.info("Network connection Enabled");
 			}
 		}catch(Exception e){
 

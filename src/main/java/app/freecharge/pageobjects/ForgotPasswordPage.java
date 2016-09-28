@@ -1,6 +1,7 @@
 package app.freecharge.pageobjects;
 
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 
 import app.freecharge.androiddriver.DriverInitialization;
@@ -14,6 +15,7 @@ public class ForgotPasswordPage extends DriverInitialization{
 
 	}
 
+	Logger logger=Logger.getLogger(ForgotPasswordPage.class); 
 	@Override
 	public void ForgotPassword() throws InterruptedException
 	{
@@ -31,6 +33,7 @@ public class ForgotPasswordPage extends DriverInitialization{
 		result = driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/reset_pwd_err') and @text='Password must contain at least one digit and atleast one alphabet']")).getText();
 		assert result.equals("Password must contain at least one digit and atleast one alphabet"):"Expected value: password confirmPassword mismatch:" + result;
 		System.out.println("Forgot Password screen validation completed");
+		logger.info("Forgot Password screen validation completed");
 		driver.sendKeyEvent(AndroidKeyCode.BACK);
 		
 	}

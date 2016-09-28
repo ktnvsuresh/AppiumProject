@@ -78,6 +78,7 @@ public class DriverInitialization {
 		Thread.sleep(10000);
 		if (p1 != null) {
 			System.out.println("Appium server Is started now.");
+			logger.info("Appium server Is started now.");
 		}
 	}
 
@@ -87,6 +88,7 @@ public class DriverInitialization {
 			p1.destroy();
 		}
 		System.out.println("Appium server Is stopped now.");
+		logger.info("Appium server Is stopped now.");
 		Thread.sleep(10000);
 	}
 	
@@ -98,6 +100,7 @@ public class DriverInitialization {
 		if(p!=null)
 		{
 			System.out.println("App installed");
+			logger.info("App installed");
 		}
 	}
 
@@ -117,6 +120,7 @@ public class DriverInitialization {
 				break;
 			default:
 				System.out.println("Please provide valid locator");
+				logger.info("Please provide valid locator");
 				break;
 			}
 		}
@@ -144,6 +148,7 @@ public class DriverInitialization {
 
 			default:
 				System.out.println("Please provide valid button name");
+				logger.info("Please provide valid button name");
 				break;
 			}
 		}
@@ -300,6 +305,11 @@ public class DriverInitialization {
 	}
 
 	public void Login_WithOutNetwork() throws InterruptedException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void registration() {
 		// TODO Auto-generated method stub
 		
 	}

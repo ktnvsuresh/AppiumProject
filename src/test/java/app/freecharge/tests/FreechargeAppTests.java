@@ -26,9 +26,9 @@ public class FreechargeAppTests extends DriverInitialization {
 	String cmd="adb install D:/Softwares/APPIUM/Sample_apk_files/FreeCharge.apk";
 
 
-	public RegisterationPage reg = null;
+	public RegisterationPage registration = null;
 	//public AppiumStartAndStop appActions = null;
-	public MainActivityPage mpage = null;
+	public MainActivityPage mainActivity = null;
 	public SignInPage signIn=null;
 	public SignOutPage signOut=null;
 	public ForgotPasswordPage forgotPassword = null;
@@ -43,8 +43,8 @@ public class FreechargeAppTests extends DriverInitialization {
 	public void setup() throws IOException, InterruptedException{
 		//appiumStop();
 		//appiumStart();
-		mpage = new MainActivityPage();
-		reg=new RegisterationPage();
+		mainActivity = new MainActivityPage();
+		registration=new RegisterationPage();
 		//appActions = new AppiumStartAndStop();
 		signIn = new SignInPage();
 		signOut = new SignOutPage();
@@ -70,7 +70,7 @@ public class FreechargeAppTests extends DriverInitialization {
 	{
 		Thread.sleep(1000);
 		// Registration page tests
-		reg.registration();
+		registration.registration();
 	}
 
 	@Test (priority =1)
@@ -140,7 +140,7 @@ public class FreechargeAppTests extends DriverInitialization {
 	@AfterTest
 	public void closeConnections()
 	{
-		mpage.quit();
+		mainActivity.quit();
 
 	}
 

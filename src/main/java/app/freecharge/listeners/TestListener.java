@@ -39,7 +39,7 @@ public class TestListener extends TestListenerAdapter {
 		test.log(LogStatus.ERROR, tr.getThrowable().getMessage());
 		try {
 			DriverInitialization.takescreenshot(filename);
-			String imagepath = test.addScreenCapture(System.getProperty("user.dir")+"\\Screenshots\\"+filename);
+			String imagepath = test.addScreenCapture(System.getProperty("user.dir")+"\\Screenshots\\Failures\\"+filename);
 			test.log(LogStatus.INFO, "Screenshot of the Page when this test failed.."+imagepath);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -57,7 +57,7 @@ public class TestListener extends TestListenerAdapter {
 		test.log(LogStatus.PASS, tr.getName()+" succesfully passed");
 		try {
 			DriverInitialization.takescreenshot(filename);
-			String imagepath = test.addScreenCapture(System.getProperty("user.dir")+"\\Screenshots\\"+filename);
+			String imagepath = test.addScreenCapture(System.getProperty("user.dir")+"\\Screenshots\\Success\\"+filename);
 			test.log(LogStatus.INFO, "Screenshot of the Page when this test succesfully passed.."+imagepath);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
