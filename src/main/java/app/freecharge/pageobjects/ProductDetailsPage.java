@@ -16,11 +16,21 @@ public class ProductDetailsPage extends DriverInitialization {
 	@Override
 	public void productdetails() throws InterruptedException{
 		driver.findElement(By.name("Shopping")).click();
-		Thread.sleep(5000);
-		driver.findElement(By.xpath("//android.view.View[@index = '2']")).click();
-		logger.info("Product Details validation completed");
+		Thread.sleep(10000);
+		try {
+			driver.findElement(By.xpath("//android.view.View[@index = '1']")).click();
+			logger.info("Product Details validation completed");
+			Thread.sleep(20000);
+			driver.findElement(By.xpath("//android.widget.ImageButton")).click();
+			Thread.sleep(20000);
+			
+		}
+		catch (Exception e) {
+			logger.info("Men's Apparel is not displayed");
+			logger.error(e);
+		}
 		
-		driver.sendKeyEvent(AndroidKeyCode.BACK);
+		
 	}
 
 

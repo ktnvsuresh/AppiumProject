@@ -118,7 +118,7 @@ public class FreechargeAppTests extends DriverInitialization {
 	@Test (priority =8)
 	public void Test_productDetailspage() throws IOException, InterruptedException
 	{ // Product Details Validation tests
-		signIn.Login();
+		//signIn.Login();
 		productDetailspage.productdetails();
 		signOut.Logout();
 	}

@@ -16,6 +16,7 @@ public class SignOutPage extends DriverInitialization{
 
 	public void Logout() throws InterruptedException{
 
+		logger.info("User Log Out function started....");
 		driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/title_text') and @text='More']")).click();
 		//mpage.signOut();
 		result = null;

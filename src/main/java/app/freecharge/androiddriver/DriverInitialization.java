@@ -34,10 +34,10 @@ public class DriverInitialization {
 	// Set path of your appium.js file.
 	public String appiumJSPath = "C:/Appium/node_modules/appium/bin/appium.js";
 	public String cmd1 = nodePath + " " + appiumJSPath;
-	
-	
+
+
 	public DriverInitialization(){
-		
+
 		initElements();
 	}
 
@@ -51,7 +51,7 @@ public class DriverInitialization {
 	public void initializeDriver() {
 
 		DesiredCapabilities caps=new DesiredCapabilities();
-		
+
 		try{
 
 			//caps.setCapability("deviceName", "emulator-5554");
@@ -69,7 +69,7 @@ public class DriverInitialization {
 
 		}
 	}
-	
+
 
 	// This method Is responsible for starting appium server.
 	public void appiumStart() throws IOException, InterruptedException {
@@ -91,7 +91,7 @@ public class DriverInitialization {
 		logger.info("Appium server Is stopped now.");
 		Thread.sleep(10000);
 	}
-	
+
 
 	public void appInstallation() throws IOException
 	{
@@ -142,10 +142,7 @@ public class DriverInitialization {
 			case name:
 				driver.findElement(By.name(locator)).click();
 				break;
-			case text:
-				//driver.findElement(name(locator)).click();
-				break;
-
+			
 			default:
 				System.out.println("Please provide valid button name");
 				logger.info("Please provide valid button name");
@@ -216,10 +213,24 @@ public class DriverInitialization {
 
 	public void popupClose(){
 		//if(driver.findElement(By.id("com.freecharge.android:id/frag_web_view"))!=null){
-		if(driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/frag_web_view')]"))!=null){
-			clickButton(ByLocator.id, "com.freecharge.android:id/splash_message_close");
+		try{
+
+
+			if ( driver.findElement(By.xpath("//android.widget.Image")).isDisplayed() == true || driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/frag_web_view')]")).isDisplayed()== true){
+				//if(driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/frag_web_view')]"))!=null){
+				clickButton(ByLocator.id, "com.freecharge.android:id/splash_message_close");
+			}
+			else
+			{
+				logger.info("Popup image is not displayed");
+			}
 
 		}
+		catch (Exception e) {
+			logger.info("Addon's are not displayed");
+			logger.error(e);
+		}
+
 	}
 
 	public static void takescreenshot(String filename) throws IOException{
@@ -301,17 +312,17 @@ public class DriverInitialization {
 
 	public void horizontalScroll() throws InterruptedException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void Login_WithOutNetwork() throws InterruptedException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void registration() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 

@@ -68,13 +68,6 @@ public class ProfilePage extends DriverInitialization{
 		result = null;
 		result = driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/action_bar_title') and @text='Add address']")).getText();
 		assert result.equals("Add address"):"Expected value: Add address:" + result;
-
-		/*if(driver.findElementByClassName("android.widget.ImageView").isDisplayed())
-		{
-			driver.findElement(By.xpath("//android.widget.ImageView[contains(@resource-id,'com.freecharge.android:id/dustbin') and @index='1']")).click();
-			driver.findElement(By.xpath("//android.widget.Button[contains(@resource-id,'android:id/button1') and @text='yes']")).click();
-		}*/
-
 		try{
 			
 			typeEditBox(ByLocator.id, "address_name", "K Suresh");
