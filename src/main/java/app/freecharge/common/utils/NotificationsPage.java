@@ -53,12 +53,14 @@ public class NotificationsPage extends DriverInitialization{
 		String OTPMessage= null;
 		//android.widget.TextView[contains(@resource-id,'android:id/title') and @text='IM-FCHRGE']
 		OTPMessage=driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'android:id/text2') and @package='com.android.systemui']")).getText();
-		logger.info("OTP Recieved and Saved text message from Notifications" +OTPMessage);
+		logger.info("OTP Recieved and Saved text message from Notifications: " +OTPMessage);
 		OTPMessage=OTPMessage.replaceAll("\\D+","");
 		OTPMessage=OTPMessage.substring(0,4);
-		logger.info("OTP value saved from message" +OTPMessage);
+		logger.info("OTP value saved from message : " +OTPMessage);
 		//com.android.systemui:id/dismiss_text
+		driver.sendKeyEvent(AndroidKeyCode.BACK);
 		return OTPMessage;
+		
 	}
 
 }

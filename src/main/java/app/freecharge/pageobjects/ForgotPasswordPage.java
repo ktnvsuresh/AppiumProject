@@ -29,10 +29,11 @@ public class ForgotPasswordPage extends DriverInitialization{
 		clickButton(ByLocator.id, "com.freecharge.android:id/forgot_pwd_submit");
 		//clickButton(ByLocator.id, "com.freecharge.android:id/rememeber_login");
 		Thread.sleep(10000);
-		notificationsPage.Notifications();
 		typeEditBox(ByLocator.id,"com.freecharge.android:id/forgot_enter_pwd_box", "xxxxxxxxx");
 		typeEditBox(ByLocator.id,"com.freecharge.android:id/forgot_reenter_pwd_box", "xxxxxxxxx");
 		driver.hideKeyboard();
+		Thread.sleep(10000);
+		notificationsPage.Notifications();
 		clickButton(ByLocator.id, "com.freecharge.android:id/forgot_reset_submit");
 		result = null;
 		result = driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/reset_pwd_err') and @text='Password must contain at least one digit and atleast one alphabet']")).getText();
