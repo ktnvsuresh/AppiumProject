@@ -66,10 +66,44 @@ public class ProfilePage extends DriverInitialization{
 		driver.scrollTo("Addresses");
 		driver.findElementByName("Addresses").click();
 		result = null;
-		result = driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/action_bar_title') and @text='Add address']")).getText();
-		assert result.equals("Add address"):"Expected value: Add address:" + result;
-		try{
+		result = driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/action_bar_title') and contains(@text,'Add address') or contains(@text,'Addresses')]")).getText();
+		logger.info(result);
+
+		if (result.equals("Add address")){
+			addAddresses();
+			assert result.equals("Add address"):"Expected value: Add address:" + result;
+		}
+
+		else{
 			deleteAddress();
+			addAddresses();
+			assert result.equals("Addresses"):"Expected value: Addresses:" + result;
+		}
+	}
+
+	public void deleteAddress(){
+		try{
+
+			if ( driver.findElement(By.xpath("//android.widget.ImageView[contains(@resource-id,'com.freecharge.android:id/dustbin')]")).isDisplayed()== true){
+				driver.findElement(By.xpath("//android.widget.ImageView[contains(@resource-id,'com.freecharge.android:id/dustbin')]")).click();
+				driver.findElement(By.xpath("//android.widget.Button[contains(@resource-id,'android:id/button1') and @text='yes']")).click();
+			}
+			else
+			{
+				logger.info("Address not added in Addresses");
+				addAddress();
+			}
+
+		}
+		catch (Exception e) {
+			logger.info("Address not Added in Addresses");
+			//logger.error(e);
+		}
+
+	}
+
+	public void addAddresses(){
+		try{
 			typeEditBox(ByLocator.id, "address_name", "K Suresh");
 			typeEditBox(ByLocator.id, "address_address","2-3-754/5/1");
 			typeEditBox(ByLocator.id, "address_city_spinner","Hyderabad");
@@ -82,32 +116,13 @@ public class ProfilePage extends DriverInitialization{
 			select_CheckBox("home_checkbox");
 			clickButton(ByLocator.id, "add_new_submit_button");
 			logger.info("Address added Successfully");
+			
 			Thread.sleep(10000);
 			driver.sendKeyEvent(AndroidKeyCode.BACK);
 		}
 		catch(Exception e){
 			logger.error(e);
 		}
-	}
-
-	public void deleteAddress(){
-		try{
-
-
-			if ( driver.findElement(By.xpath("//com.freecharge.android:id/dustbin")).isDisplayed() == true || driver.findElement(By.xpath("//android.widget.ImageView[contains(@resource-id,'com.freecharge.android:id/dustbin')]")).isDisplayed()== true){
-				driver.findElement(By.xpath("//android.widget.ImageView[contains(@resource-id,'com.freecharge.android:id/dustbin')]")).click();
-			}
-			else
-			{
-				logger.info("Address not added in Addresses");
-			}
-
-		}
-		catch (Exception e) {
-			logger.info("Address not Added in Addresses");
-			logger.error(e);
-		}
-
 	}
 
 

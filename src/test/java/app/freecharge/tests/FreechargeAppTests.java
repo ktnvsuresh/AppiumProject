@@ -78,14 +78,6 @@ public class FreechargeAppTests extends DriverInitialization {
 		signOut.Logout();
 	}
 
-	/*@Test (priority =3)
-	public  String Test_NotificationsPage() throws Exception
-	{ // Switch to Freecharge WEBUI
-		//notificationsPage.ClearAllNotifications();
-		//notificationsPage.Notifications();
-		return OTPValue;
-	}*/
-
 	@Test (priority =3)
 	public void Test_forgotPasswordPage() throws Exception
 	{
