@@ -69,7 +69,7 @@ public class ProfilePage extends DriverInitialization{
 		result = driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/action_bar_title') and @text='Add address']")).getText();
 		assert result.equals("Add address"):"Expected value: Add address:" + result;
 		try{
-			
+			deleteAddress();
 			typeEditBox(ByLocator.id, "address_name", "K Suresh");
 			typeEditBox(ByLocator.id, "address_address","2-3-754/5/1");
 			typeEditBox(ByLocator.id, "address_city_spinner","Hyderabad");
@@ -88,6 +88,26 @@ public class ProfilePage extends DriverInitialization{
 		catch(Exception e){
 			logger.error(e);
 		}
+	}
+
+	public void deleteAddress(){
+		try{
+
+
+			if ( driver.findElement(By.xpath("//com.freecharge.android:id/dustbin")).isDisplayed() == true || driver.findElement(By.xpath("//android.widget.ImageView[contains(@resource-id,'com.freecharge.android:id/dustbin')]")).isDisplayed()== true){
+				driver.findElement(By.xpath("//android.widget.ImageView[contains(@resource-id,'com.freecharge.android:id/dustbin')]")).click();
+			}
+			else
+			{
+				logger.info("Address not added in Addresses");
+			}
+
+		}
+		catch (Exception e) {
+			logger.info("Address not Added in Addresses");
+			logger.error(e);
+		}
+
 	}
 
 

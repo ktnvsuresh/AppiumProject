@@ -64,7 +64,7 @@ public class FreechargeAppTests extends DriverInitialization {
 
 
 
-	/*@Test (priority =1)
+	@Test (priority =1)
 	public void Test_appInstallation() throws InterruptedException, IOException
 	{
 		appInstallation();
@@ -78,8 +78,16 @@ public class FreechargeAppTests extends DriverInitialization {
 		signOut.Logout();
 	}
 
+	/*@Test (priority =3)
+	public  String Test_NotificationsPage() throws Exception
+	{ // Switch to Freecharge WEBUI
+		//notificationsPage.ClearAllNotifications();
+		//notificationsPage.Notifications();
+		return OTPValue;
+	}*/
+
 	@Test (priority =3)
-	public void Test_forgotPasswordPage() throws IOException, InterruptedException
+	public void Test_forgotPasswordPage() throws Exception
 	{
 		// Forgot Password Tests
 		forgotPassword.ForgotPassword();
@@ -149,26 +157,7 @@ public class FreechargeAppTests extends DriverInitialization {
 	public void Test_networkConnection() throws InterruptedException, IOException
 	{ // Disable Network and try to Login with Google ID and Enable Network
 		signIn.Login_WithOutNetwork();
-	}*/
-
-	/*@Test
-	public void Test_SwitchToWebUIPage() throws InterruptedException, IOException
-	{ // Switch to Freecharge WEBUI
-		//signIn.Login();
-		//switchToWebUI.switchToWebUI();
-		//signOut.Logout();
-		
 	}
-	*/
-	@Test
-	public void Test_NotificationsPage() throws Exception
-	{ // Switch to Freecharge WEBUI
-		//signIn.Login();
-		//switchToWebUI.switchToWebUI();
-		//signOut.Logout();
-		notificationsPage.Notifications();
-	}
-
 
 
 	@AfterTest

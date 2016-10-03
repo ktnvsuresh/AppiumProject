@@ -34,6 +34,7 @@ public class DriverInitialization {
 	// Set path of your appium.js file.
 	public String appiumJSPath = "C:/Appium/node_modules/appium/bin/appium.js";
 	public String cmd1 = nodePath + " " + appiumJSPath;
+	public String OTPValue=null;
 
 
 	public DriverInitialization(){
@@ -228,7 +229,7 @@ public class DriverInitialization {
 		}
 		catch (Exception e) {
 			logger.info("Addon's are not displayed");
-			logger.error(e);
+			//logger.error(e);
 		}
 
 	}
@@ -240,7 +241,7 @@ public class DriverInitialization {
 		FileUtils.copyFile(scrFile, new File(outputfile));
 	}
 
-	public void ForgotPassword() throws InterruptedException {
+	public void ForgotPassword() throws InterruptedException, Exception {
 		// TODO Auto-generated method stub
 
 	}
@@ -330,7 +331,13 @@ public class DriverInitialization {
 
 		}
 
-	public void Notifications() throws Exception {
+	public String Notifications() throws Exception {
+		return OTPValue;
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void ClearAllNotifications()  {
 		// TODO Auto-generated method stub
 		
 	}
