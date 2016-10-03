@@ -325,5 +325,13 @@ public class DriverInitialization {
 
 	}
 
+	public void switchToWebUI() throws InterruptedException{
+	// TODO Auto-generated method stub
 
+		}
+
+	public void Notifications() throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
 }

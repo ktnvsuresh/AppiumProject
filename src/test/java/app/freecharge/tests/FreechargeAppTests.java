@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 import app.freecharge.androiddriver.DriverInitialization;
 import app.freecharge.common.utils.ByLocator;
+import app.freecharge.common.utils.NotificationsPage;
 import app.freecharge.pageobjects.HomePage;
 import app.freecharge.pageobjects.MainActivityPage;
 import app.freecharge.pageobjects.NetworkConnectionsPage;
@@ -18,6 +19,7 @@ import app.freecharge.pageobjects.RegisterationPage;
 import app.freecharge.pageobjects.ForgotPasswordPage;
 import app.freecharge.pageobjects.SignInPage;
 import app.freecharge.pageobjects.SignOutPage;
+import app.freecharge.pageobjects.SwitchToWebUIPage;
 import io.appium.java_client.android.AndroidKeyCode;
 import org.apache.log4j.*;
 
@@ -37,8 +39,9 @@ public class FreechargeAppTests extends DriverInitialization {
 	public  NetworkConnectionsPage networkPage = null;
 	public ProductDetailsPage productDetailspage = null;
 	public OffersPage offerspage=null;
-
+	public SwitchToWebUIPage switchToWebUI=null;
 	public ProfilePage profilePage = null;
+	public NotificationsPage notificationsPage = null;
 
 	@BeforeSuite
 	public void setup() throws IOException, InterruptedException{
@@ -55,11 +58,13 @@ public class FreechargeAppTests extends DriverInitialization {
 		productDetailspage = new ProductDetailsPage();
 		offerspage = new OffersPage();
 		forgotPassword = new ForgotPasswordPage();
+		switchToWebUI=new SwitchToWebUIPage();
+		notificationsPage = new NotificationsPage();
 	}
 
 
 
-	@Test (priority =1)
+	/*@Test (priority =1)
 	public void Test_appInstallation() throws InterruptedException, IOException
 	{
 		appInstallation();
@@ -122,8 +127,17 @@ public class FreechargeAppTests extends DriverInitialization {
 		productDetailspage.productdetails();
 		signOut.Logout();
 	}
-	
-	@Test (priority =9)
+
+	@Test(priority =9)
+	public void Test_SwitchToWebUIPage() throws InterruptedException, IOException
+	{ // Switch to Freecharge WEBUI
+		signIn.Login();
+		switchToWebUI.switchToWebUI();
+		signOut.Logout();
+
+	}
+
+	@Test (priority =10)
 	public void Test_registrationPage() throws IOException, InterruptedException
 	{
 		Thread.sleep(1000);
@@ -131,13 +145,31 @@ public class FreechargeAppTests extends DriverInitialization {
 		registration.registration();
 	}
 
-	@Test (priority =10)
+	@Test (priority =11)
 	public void Test_networkConnection() throws InterruptedException, IOException
 	{ // Disable Network and try to Login with Google ID and Enable Network
 		signIn.Login_WithOutNetwork();
+	}*/
+
+	/*@Test
+	public void Test_SwitchToWebUIPage() throws InterruptedException, IOException
+	{ // Switch to Freecharge WEBUI
+		//signIn.Login();
+		//switchToWebUI.switchToWebUI();
+		//signOut.Logout();
+		
 	}
-	
-	
+	*/
+	@Test
+	public void Test_NotificationsPage() throws Exception
+	{ // Switch to Freecharge WEBUI
+		//signIn.Login();
+		//switchToWebUI.switchToWebUI();
+		//signOut.Logout();
+		notificationsPage.Notifications();
+	}
+
+
 
 	@AfterTest
 	public void closeConnections()
