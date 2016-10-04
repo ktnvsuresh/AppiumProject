@@ -28,6 +28,7 @@ public class RegisterationPage extends DriverInitialization{
 			driver.hideKeyboard();
 			driver.findElement(By.xpath("//android.widget.Button[contains(@resource-id,'com.freecharge.android:id/registration_button') and @text='SIGN UP']")).click();
 			Thread.sleep(20000);
+			driver.hideKeyboard();
 		}catch(Exception e){
 
 		}

@@ -135,7 +135,7 @@ public class FreechargeAppTests extends DriverInitialization {
 		switchToWebUI.switchToWebUI();
 		signOut.Logout();
 
-	}
+	}*/
 
 	@Test (priority =10)
 	public void Test_registrationPage() throws IOException, InterruptedException
@@ -144,7 +144,7 @@ public class FreechargeAppTests extends DriverInitialization {
 		// Registration page tests
 		registration.registration();
 	}
-*/
+
 	@Test (priority =11)
 	public void Test_networkConnection() throws InterruptedException, IOException
 	{ // Disable Network and try to Login with Google ID and Enable Network
