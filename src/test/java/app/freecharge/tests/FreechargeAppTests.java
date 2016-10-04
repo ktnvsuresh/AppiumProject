@@ -64,7 +64,7 @@ public class FreechargeAppTests extends DriverInitialization {
 
 
 
-	@Test (priority =1)
+	/*@Test (priority =1)
 	public void Test_appInstallation() throws InterruptedException, IOException
 	{
 		appInstallation();
@@ -123,7 +123,7 @@ public class FreechargeAppTests extends DriverInitialization {
 	@Test (priority =8)
 	public void Test_productDetailspage() throws IOException, InterruptedException
 	{ // Product Details Validation tests
-		//signIn.Login();
+		signIn.Login();
 		productDetailspage.productdetails();
 		signOut.Logout();
 	}
@@ -144,7 +144,7 @@ public class FreechargeAppTests extends DriverInitialization {
 		// Registration page tests
 		registration.registration();
 	}
-
+*/
 	@Test (priority =11)
 	public void Test_networkConnection() throws InterruptedException, IOException
 	{ // Disable Network and try to Login with Google ID and Enable Network

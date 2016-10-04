@@ -32,8 +32,6 @@ public class SignInPage extends DriverInitialization{
 		result = driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/action_bar_title') and @text='Suresh']")).getText();
 		assert result.equals("Suresh"):"Expected value: Suresh:" + result;
 		logger.info("User Successfully Loggedin");
-
-		popupClose();
 	}
 
 	@Override
@@ -52,7 +50,6 @@ public class SignInPage extends DriverInitialization{
 	@Override
 	public void GoogleLogin() throws InterruptedException
 	{
-		//networkPage.networkConnections();
 		clickButton(ByLocator.id, "com.freecharge.android:id/google_signin_btn");
 		radioButton("ramyamca1@gmail.com");
 		driver.findElement(By.name("OK")).click();
@@ -70,15 +67,15 @@ public class SignInPage extends DriverInitialization{
 	{	
 		networkPage = new NetworkConnectionsPage();
 		clickButton(ByLocator.id, "com.freecharge.android:id/google_signin_btn");
+		Thread.sleep(10000);
 		networkPage.networkConnections();
 		radioButton("ramyamca1@gmail.com");
 		driver.findElement(By.name("OK")).click();
 		Thread.sleep(10000);
-		//popupClose();
 		result = null;
 		result = driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/snackbar_text') and @text='Please check your login details and try again later']")).getText();
 		assert result.equals("Please check your login details and try again later"):"Expected value: Please check your login details and try again later:" + result;
-		logger.info("Network down so User Not able to loggedin with Goole ID");
+		logger.info("Network down so User Not able to login with Google ID");
 		driver.sendKeyEvent(AndroidKeyCode.BACK);
 		driver.sendKeyEvent(AndroidKeyCode.BACK);
 		networkPage.networkConnections();

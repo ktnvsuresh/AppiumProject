@@ -21,11 +21,11 @@ public class SwitchToWebUIPage extends DriverInitialization{
 		driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/title_text') and @text='More']")).click();
 		driver.scrollTo("Terms of service");
 		driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/account_details_item_title') and @text='Terms of service']")).click();
-		Thread.sleep(5000);
+		Thread.sleep(15000);
 		driver.findElement(By.xpath("//android.view.View[contains(@package,'com.android.browser') or contains(@package,'com.android.chrome') and contains(@content-desc,'Terms & Conditions')]")).click();
 		result = null;
 		result = driver.findElement(By.xpath("//android.widget.EditText[contains(@package,'com.android.browser') or contains(@package,'com.android.chrome') and contains(@resource-id,'com.android.browser:id/url') or contains(@resource-id,'com.android.chrome:id/url_bar')]")).getText();
-		Thread.sleep(6000);
+		Thread.sleep(10000);
 		logger.info(result);
 		assert result.equals("https://www.freecharge.in/app/termsandconditions.htm"):"Expected value: https://www.freecharge.in/app/termsandconditions.htm" + result;
 		logger.info("Terms and Conditions validation completed in Freecharge WEB UI");
