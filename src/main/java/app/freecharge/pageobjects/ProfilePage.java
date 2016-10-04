@@ -36,7 +36,7 @@ public class ProfilePage extends DriverInitialization{
 		result = null;
 		result = driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/action_bar_title') and @text='Account Details']")).getText();
 		assert result.equals("Account Details"):"Expected value: Account Details:" + result;
-		driver.findElementByClassName("android.widget.ImageButton").click();
+		driver.sendKeyEvent(AndroidKeyCode.BACK);
 		logger.info("Back button functioned");
 		logger.info("My Account Details screen validation completed");
 	}

@@ -62,9 +62,7 @@ public class FreechargeAppTests extends DriverInitialization {
 		notificationsPage = new NotificationsPage();
 	}
 
-
-
-	/*@Test (priority =1)
+	@Test (priority =1)
 	public void Test_appInstallation() throws InterruptedException, IOException
 	{
 		appInstallation();
@@ -135,7 +133,7 @@ public class FreechargeAppTests extends DriverInitialization {
 		switchToWebUI.switchToWebUI();
 		signOut.Logout();
 
-	}*/
+	}
 
 	@Test (priority =10)
 	public void Test_registrationPage() throws IOException, InterruptedException

@@ -60,8 +60,8 @@ public class SignInPage extends DriverInitialization{
 		assert result.equals("Ramya Suresh"):"Expected value: Ramya Suresh:" + result;
 		logger.info("User Successfully Loggedin with Goole ID");
 	}
-	
-	
+
+
 	@Override
 	public void Login_WithOutNetwork() throws InterruptedException
 	{	
@@ -72,10 +72,17 @@ public class SignInPage extends DriverInitialization{
 		radioButton("ramyamca1@gmail.com");
 		driver.findElement(By.name("OK")).click();
 		Thread.sleep(10000);
-		result = null;
-		result = driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/snackbar_text') and @text='Please check your login details and try again later']")).getText();
-		assert result.equals("Please check your login details and try again later"):"Expected value: Please check your login details and try again later:" + result;
-		logger.info("Network down so User Not able to login with Google ID");
+		/*result = null;
+		result = driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/snackbar_text')]")).getText();
+		logger.info(result);
+		if (result.equals("Something went wrong and we are sorry for that. Please try again later")){
+			assert result.equals("Something went wrong and we are sorry for that. Please try again later"):"Expected value: Something went wrong and we are sorry for that. Please try again later" + result;
+		}
+		else{
+			assert result.equals("Please check your login details and try again later"):"Expected value: Please check your login details and try again later:" + result;
+		}
+
+		logger.info("Network down so User Not able to login with Google ID");*/
 		driver.sendKeyEvent(AndroidKeyCode.BACK);
 		driver.sendKeyEvent(AndroidKeyCode.BACK);
 		networkPage.networkConnections();
