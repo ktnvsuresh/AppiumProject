@@ -10,3 +10,8 @@
 2016-10-04 10:08:30 INFO  DriverInitialization:49 - App is already opened
 2016-10-04 10:08:30 INFO  DriverInitialization:49 - App is already opened
 2016-10-04 10:08:30 INFO  DriverInitialization:49 - App is already opened
+2016-10-04 10:09:33 INFO  DriverInitialization:49 - App is already opened
+2016-10-04 10:10:22 INFO  NetworkConnectionsPage:31 - Network connection Disabled
+2016-10-04 10:10:35 INFO  SignInPage:78 - Network down so User Not able to login with Google ID
+2016-10-04 10:11:04 INFO  NetworkConnectionsPage:37 - Network connection Enabled
+2016-10-04 10:11:04 INFO  DriverInitialization:23 - inside quit method...
