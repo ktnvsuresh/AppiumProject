@@ -57,7 +57,6 @@ public class NotificationsPage extends DriverInitialization{
 		OTPMessage=OTPMessage.replaceAll("\\D+","");
 		OTPMessage=OTPMessage.substring(0,4);
 		logger.info("OTP value saved from message : " +OTPMessage);
-		//com.android.systemui:id/dismiss_text
 		driver.sendKeyEvent(AndroidKeyCode.BACK);
 		return OTPMessage;
 		

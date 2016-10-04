@@ -116,7 +116,6 @@ public class ProfilePage extends DriverInitialization{
 			select_CheckBox("home_checkbox");
 			clickButton(ByLocator.id, "add_new_submit_button");
 			logger.info("Address added Successfully");
-			
 			Thread.sleep(10000);
 			driver.sendKeyEvent(AndroidKeyCode.BACK);
 		}
