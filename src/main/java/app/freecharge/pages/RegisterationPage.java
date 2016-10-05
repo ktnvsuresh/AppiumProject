@@ -29,12 +29,12 @@ public class RegisterationPage extends DriverInitialization{
 			typeEditBox(ByLocator.id, elementprop.getProperty("REGISTRATION_PASSWORD"), "xxxxxxxxx");
 			driver.hideKeyboard();
 			driver.findElement(By.xpath(elementprop.getProperty("REGISTRATION_SIGN_UP_BUTTON"))).click();
-			Thread.sleep(20000);
+			Thread.sleep(5000);
+			driver.hideKeyboard();
 			Boolean result = false;
 			result = driver.findElement(By.xpath(elementprop.getProperty("REGISTRATION_SIGN_UP_BUTTON"))).isDisplayed();
 			assert result.equals(true):"Expected value: true" + result;
 			logger.info("Registration Failed");
-			driver.hideKeyboard();
 			driver.findElementByName("SIGN IN").click();
 		}catch(Exception e){
 

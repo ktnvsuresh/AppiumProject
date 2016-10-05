@@ -1,15 +1,5 @@
-2016-10-05 18:28:14 INFO  DriverInitialization:117 - D:\Softwares\eclipse\workspace\Andriod
-2016-10-05 18:28:14 INFO  DriverInitialization:121 - Freecharge_ElementLocators.properties is exist !
-2016-10-05 18:28:34 INFO  DriverInitialization:55 - App is already opened
-2016-10-05 18:28:34 INFO  DriverInitialization:55 - App is already opened
-2016-10-05 18:28:34 INFO  DriverInitialization:55 - App is already opened
-2016-10-05 18:28:34 INFO  DriverInitialization:55 - App is already opened
-2016-10-05 18:28:34 INFO  DriverInitialization:55 - App is already opened
-2016-10-05 18:28:34 INFO  DriverInitialization:55 - App is already opened
-2016-10-05 18:28:34 INFO  DriverInitialization:55 - App is already opened
-2016-10-05 18:28:34 INFO  DriverInitialization:55 - App is already opened
-2016-10-05 18:28:34 INFO  DriverInitialization:55 - App is already opened
-2016-10-05 18:28:34 INFO  DriverInitialization:55 - App is already opened
-2016-10-05 18:28:34 INFO  DriverInitialization:55 - App is already opened
-2016-10-05 18:28:34 INFO  DriverInitialization:55 - App is already opened
-2016-10-05 18:37:45 INFO  DriverInitialization:23 - inside quit method...
+2016-10-05 22:29:53 INFO  DriverInitialization:115 - D:\eclipse-jee-mars\workspace\AppiumProject
+2016-10-05 22:29:53 INFO  DriverInitialization:119 - Freecharge_ElementLocators.properties is exist !
+2016-10-05 22:30:19 INFO  DriverInitialization:108 - App installed
+2016-10-05 22:31:03 INFO  DriverInitialization:257 - Addon's are not displayed
+2016-10-05 22:31:03 INFO  DriverInitialization:23 - inside quit method...

@@ -15,14 +15,14 @@ public class ProductDetailsPage extends DriverInitialization {
 	Logger logger=Logger.getLogger(ProductDetailsPage.class);
 	@Override
 	public void productdetails() throws InterruptedException{
-		driver.findElement(By.name("Shopping")).click();
+		driver.findElement(By.name(elementprop.getProperty("SHOPPING"))).click();
 		Thread.sleep(10000);
 		try {
 			driver.findElement(By.xpath(elementprop.getProperty("INDEX_1"))).click();
 			logger.info("Product Details validation completed");
 			Thread.sleep(20000);
 			driver.findElement(By.xpath(elementprop.getProperty("IMAGE_BUTTON"))).click();
-			Thread.sleep(20000);
+			Thread.sleep(10000);
 			
 		}
 		catch (Exception e) {

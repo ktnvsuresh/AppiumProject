@@ -23,13 +23,13 @@ public class SignInPage extends DriverInitialization{
 	@Override
 	public void Login() throws InterruptedException
 	{
-		typeEditBox(ByLocator.id,elementprop.getProperty("EMAIL_EDIT_TEXT"), "917730662");
-		typeEditBox(ByLocator.id,elementprop.getProperty("PASSWORD_Edit_TEXT"), "XXXXXXXXX");
+		typeEditBox(ByLocator.id,elementprop.getProperty("EMAIL_EDIT_TEXT"), "9177306662");
+		typeEditBox(ByLocator.id,elementprop.getProperty("PASSWORD_Edit_TEXT"), "kowtha");
 		clickButton(ByLocator.id, elementprop.getProperty("LOGIN_BUTTON"));
 		Thread.sleep(10000);
 		popupClose();
 		result = null;
-		result = driver.findElement(By.xpath(elementprop.getProperty("ACTION_BAR_TITLE"))).getText();
+		result = driver.findElement(By.xpath(elementprop.getProperty("ACTION_BAR_TITLE_LOGIN"))).getText();
 		assert result.equals("Suresh"):"Expected value: Suresh:" + result;
 		logger.info("User Successfully Loggedin");
 	}

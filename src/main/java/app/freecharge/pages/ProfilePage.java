@@ -45,6 +45,7 @@ public class ProfilePage extends DriverInitialization{
 
 	@Override
 	public void viewTransactionHistory() throws InterruptedException{
+		driver.sendKeyEvent(AndroidKeyCode.BACK);
 		profileClick();
 		driver.scrollTo(elementprop.getProperty("VIEW_TRANSACTIONS_HISTORY_LINK"));
 		// Click on View transaction history.
@@ -59,7 +60,7 @@ public class ProfilePage extends DriverInitialization{
 
 	@Override
 	public void addAddress() throws InterruptedException{
-
+		driver.sendKeyEvent(AndroidKeyCode.BACK);
 		profileClick();
 		driver.scrollTo(elementprop.getProperty("MY_ACCOUNT_DETAILS"));
 		// Click on My account details.
@@ -109,13 +110,14 @@ public class ProfilePage extends DriverInitialization{
 			typeEditBox(ByLocator.id, elementprop.getProperty("ADDRESS_NAME"), "K Suresh");
 			typeEditBox(ByLocator.id, elementprop.getProperty("ADDRESS_ADDRESS"),"2-3-754/5/1");
 			typeEditBox(ByLocator.id, elementprop.getProperty("ADDRESS_CITY"),"Hyderabad");
-			dropDown_Select("State","Telangana");
+			dropDown_Select(elementprop.getProperty("STATE"),"Telangana");
 			driver.hideKeyboard();
 			typeEditBox(ByLocator.id, elementprop.getProperty("ADDRESS_POSTAL_CODE"),"500013");
 			driver.hideKeyboard();
 			typeEditBox(ByLocator.id, elementprop.getProperty("ADDRESS_MOBILE_NUMBER"),"9177306662");
 			driver.hideKeyboard();
-			select_CheckBox(elementprop.getProperty("HOME_CHECKBOX"));
+			//select_CheckBox(elementprop.getProperty("HOME_CHECKBOX"));
+			Thread.sleep(5000);
 			clickButton(ByLocator.id, elementprop.getProperty("ADDRESS_SUBMIT_BUTTON"));
 			logger.info("Address added Successfully");
 			Thread.sleep(10000);

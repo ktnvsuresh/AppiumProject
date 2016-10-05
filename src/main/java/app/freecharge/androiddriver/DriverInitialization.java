@@ -243,9 +243,9 @@ public class DriverInitialization {
 		try{
 
 
-			if ( driver.findElement(By.xpath("//android.widget.Image")).isDisplayed() == true || driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/frag_web_view')]")).isDisplayed()== true){
+			if ( driver.findElement(By.xpath(elementprop.getProperty("IMAGE_CLOSE"))).isDisplayed() == true || driver.findElement(By.xpath(elementprop.getProperty("SPLASH_MESSAGE_CLOSE"))).isDisplayed()== true){
 				//if(driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/frag_web_view')]"))!=null){
-				clickButton(ByLocator.id, "com.freecharge.android:id/splash_message_close");
+				clickButton(ByLocator.id, elementprop.getProperty("SPLASH_MESSAGE_CLOSE"));
 			}
 			else
 			{
