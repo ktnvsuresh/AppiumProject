@@ -1,4 +1,4 @@
-package app.freecharge.pageobjects;
+package app.freecharge.pages;
 
 
 import org.apache.log4j.Logger;
@@ -23,25 +23,38 @@ public class SignInPage extends DriverInitialization{
 	@Override
 	public void Login() throws InterruptedException
 	{
-		typeEditBox(ByLocator.id,"com.freecharge.android:id/email_edit_text", "9177306662");
-		typeEditBox(ByLocator.id,"com.freecharge.android:id/password_edit_text", "kowtha");
-		clickButton(ByLocator.id, "com.freecharge.android:id/login_button");
+		typeEditBox(ByLocator.id,elementprop.getProperty("EMAIL_EDIT_TEXT"), "917730662");
+		typeEditBox(ByLocator.id,elementprop.getProperty("PASSWORD_Edit_TEXT"), "XXXXXXXXX");
+		clickButton(ByLocator.id, elementprop.getProperty("LOGIN_BUTTON"));
 		Thread.sleep(10000);
 		popupClose();
 		result = null;
-		result = driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/action_bar_title') and @text='Suresh']")).getText();
+		result = driver.findElement(By.xpath(elementprop.getProperty("ACTION_BAR_TITLE"))).getText();
 		assert result.equals("Suresh"):"Expected value: Suresh:" + result;
 		logger.info("User Successfully Loggedin");
 	}
 
 	@Override
+	public void InvalidLogin() throws InterruptedException
+	{
+		typeEditBox(ByLocator.id,elementprop.getProperty("EMAIL_EDIT_TEXT"), "9876543210");
+		typeEditBox(ByLocator.id,elementprop.getProperty("PASSWORD_Edit_TEXT"), "xxxxxxx");
+		clickButton(ByLocator.id, elementprop.getProperty("LOGIN_BUTTON"));
+		Thread.sleep(10000);
+		Boolean result = false;
+		result = driver.findElement(By.id(elementprop.getProperty("LOGIN_BUTTON"))).isDisplayed();
+		logger.info(result);
+		assert result.equals(true):"Expected value: true" + result;
+		logger.info("Incorrect User details");
+	}
+	@Override
 	public void FaceBookLogin() throws InterruptedException
 	{
-		clickButton(ByLocator.id, "com.freecharge.android:id/facebook_signin_btn");
+		clickButton(ByLocator.id, elementprop.getProperty("FACEBOOK_SIGN_BUTTON"));
 		Thread.sleep(10000);
 		popupClose();
 		result = null;
-		result = driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/action_bar_title') and @text='Ramya Suresh']")).getText();
+		result = driver.findElement(By.xpath(elementprop.getProperty("ACTION_BAR_TITLE__FACEBOOK_LOGIN"))).getText();
 		assert result.equals("Ramya Suresh"):"Expected value: Ramya Suresh:" + result;
 		logger.info("User Successfully Loggedin with Facebook ID");
 
@@ -50,13 +63,13 @@ public class SignInPage extends DriverInitialization{
 	@Override
 	public void GoogleLogin() throws InterruptedException
 	{
-		clickButton(ByLocator.id, "com.freecharge.android:id/google_signin_btn");
+		clickButton(ByLocator.id,elementprop.getProperty("GOOGLE_SIGN_BUTTON"));
 		radioButton("ramyamca1@gmail.com");
 		driver.findElement(By.name("OK")).click();
 		Thread.sleep(10000);
 		popupClose();
 		result = null;
-		result = driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/action_bar_title') and @text='Ramya Suresh']")).getText();
+		result = driver.findElement(By.xpath(elementprop.getProperty("ACTION_BAR_TITLE__GOOGLE_LOGIN"))).getText();
 		assert result.equals("Ramya Suresh"):"Expected value: Ramya Suresh:" + result;
 		logger.info("User Successfully Loggedin with Goole ID");
 	}
@@ -66,7 +79,7 @@ public class SignInPage extends DriverInitialization{
 	public void Login_WithOutNetwork() throws InterruptedException
 	{	
 		networkPage = new NetworkConnectionsPage();
-		clickButton(ByLocator.id, "com.freecharge.android:id/google_signin_btn");
+		clickButton(ByLocator.id, elementprop.getProperty("GOOGLE_SIGN_BUTTON"));
 		Thread.sleep(10000);
 		networkPage.networkConnections();
 		radioButton("ramyamca1@gmail.com");

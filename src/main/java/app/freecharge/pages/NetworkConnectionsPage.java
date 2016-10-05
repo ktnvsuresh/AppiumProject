@@ -1,4 +1,4 @@
-package app.freecharge.pageobjects;
+package app.freecharge.pages;
 
 import org.apache.log4j.Logger;
 

@@ -4,8 +4,11 @@
 package app.freecharge.androiddriver;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
@@ -36,7 +39,10 @@ public class DriverInitialization {
 	public String cmd1 = nodePath + " " + appiumJSPath;
 	public String OTPValue=null;
 
-
+	protected static Properties elementprop;
+	static {
+		loadElementLocators();
+	}
 	public DriverInitialization(){
 
 		initElements();
@@ -45,8 +51,6 @@ public class DriverInitialization {
 	public void initElements() {
 		if(!isdriverinitialized)
 			initializeDriver();
-		else
-			logger.info("App is already opened");
 	}
 
 	public void initializeDriver() {
@@ -105,6 +109,28 @@ public class DriverInitialization {
 		}
 	}
 
+	public static void loadElementLocators(){
+		elementprop = new Properties();
+		String workingDir = System.getProperty("user.dir");
+		logger.info(workingDir);
+		File f = new File(workingDir + "//src//main//java//app//freecharge//pageobjects//Freecharge_ElementLocators.properties");
+
+		if( f.exists()){
+			logger.info(f.getName() + " is exist !");
+			try {
+				elementprop.load(new FileInputStream(f));
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}else{
+			logger.info(f.getName() + " not found!!!");
+		}
+	}
+
 
 	public static void typeEditBox(ByLocator locatorType,String locator, String value)
 	{
@@ -143,7 +169,7 @@ public class DriverInitialization {
 			case name:
 				driver.findElement(By.name(locator)).click();
 				break;
-			
+
 			default:
 				System.out.println("Please provide valid button name");
 				logger.info("Please provide valid button name");
@@ -327,18 +353,23 @@ public class DriverInitialization {
 	}
 
 	public void switchToWebUI() throws InterruptedException{
-	// TODO Auto-generated method stub
+		// TODO Auto-generated method stub
 
-		}
+	}
 
 	public String Notifications() throws Exception {
 		return OTPValue;
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void ClearAllNotifications()  {
 		// TODO Auto-generated method stub
-		
+
+	}
+
+	public void InvalidLogin() throws InterruptedException {
+		// TODO Auto-generated method stub
+
 	}
 }

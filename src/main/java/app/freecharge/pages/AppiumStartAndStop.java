@@ -1,4 +1,4 @@
-package app.freecharge.pageobjects;
+package app.freecharge.pages;
 
 import io.appium.java_client.android.AndroidDriver;
 import java.io.IOException;

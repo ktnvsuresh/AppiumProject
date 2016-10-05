@@ -1,4 +1,4 @@
-package app.freecharge.common.utils;
+package app.freecharge.pages;
 
 import java.util.List;
 
@@ -10,7 +10,6 @@ import org.openqa.selenium.support.FindBys;
 import org.testng.Assert;
 
 import app.freecharge.androiddriver.DriverInitialization;
-import app.freecharge.pageobjects.SignOutPage;
 import bsh.StringUtil;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.android.AndroidDriver;
@@ -28,8 +27,8 @@ public class NotificationsPage extends DriverInitialization{
 	public void ClearAllNotifications() {
 		driver.openNotifications();
 		try {
-			if (driver.findElement(By.xpath("//android.widget.Button[contains(@resource-id,'com.android.systemui:id/dismiss_text') and @package='com.android.systemui']")).isDisplayed()== true){
-				driver.findElement(By.xpath("//android.widget.Button[contains(@resource-id,'com.android.systemui:id/dismiss_text') and @package='com.android.systemui']")).click();
+			if (driver.findElement(By.xpath(elementprop.getProperty("NOTIFICATIONS_CLEAR"))).isDisplayed()== true){
+				driver.findElement(By.xpath(elementprop.getProperty("NOTIFICATIONS_CLEAR"))).click();
 				logger.info("All Existing Notifications are cleared");
 			}
 			else{
@@ -52,7 +51,7 @@ public class NotificationsPage extends DriverInitialization{
 		driver.openNotifications();
 		String OTPMessage= null;
 		//android.widget.TextView[contains(@resource-id,'android:id/title') and @text='IM-FCHRGE']
-		OTPMessage=driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'android:id/text2') and @package='com.android.systemui']")).getText();
+		OTPMessage=driver.findElement(By.xpath(elementprop.getProperty("NOTIFICATION_GET_TEXT"))).getText();
 		logger.info("OTP Recieved and Saved text message from Notifications: " +OTPMessage);
 		OTPMessage=OTPMessage.replaceAll("\\D+","");
 		OTPMessage=OTPMessage.substring(0,4);

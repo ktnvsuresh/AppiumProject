@@ -1,4 +1,4 @@
-package app.freecharge.pageobjects;
+package app.freecharge.pages;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -14,7 +14,7 @@ public class HomePage extends DriverInitialization{
 	Logger logger=Logger.getLogger(HomePage.class); 
 	public void homeClick() throws InterruptedException
 	{
-		driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/title_text') and @text='Home']") ).click();
+		driver.findElement(By.xpath(elementprop.getProperty("HOME_LINK"))).click();
 		Thread.sleep(5000);
 		System.out.println("Home Button Functioned Successfully");
 		logger.info("Home Button Functioned Successfully");

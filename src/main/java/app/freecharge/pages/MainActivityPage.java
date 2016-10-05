@@ -1,4 +1,4 @@
-package app.freecharge.pageobjects;
+package app.freecharge.pages;
 
 import org.openqa.selenium.By;
 import app.freecharge.androiddriver.DriverInitialization;
@@ -11,7 +11,7 @@ public class MainActivityPage extends DriverInitialization{
 
 	public void signOut() {
 		driver.scrollTo("Sign out");
-		driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/title') and @text='Sign out']") ).click();
+		driver.findElement(By.xpath(elementprop.getProperty("SIGN_OUT")) ).click();
 	}
 	//com.freecharge.android:id/snackbar_text
 	//text=Something went wrong and we are sorry for that. Please try again later

@@ -8,18 +8,18 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 import app.freecharge.androiddriver.DriverInitialization;
 import app.freecharge.common.utils.ByLocator;
-import app.freecharge.common.utils.NotificationsPage;
-import app.freecharge.pageobjects.HomePage;
-import app.freecharge.pageobjects.MainActivityPage;
-import app.freecharge.pageobjects.NetworkConnectionsPage;
-import app.freecharge.pageobjects.OffersPage;
-import app.freecharge.pageobjects.ProductDetailsPage;
-import app.freecharge.pageobjects.ProfilePage;
-import app.freecharge.pageobjects.RegisterationPage;
-import app.freecharge.pageobjects.ForgotPasswordPage;
-import app.freecharge.pageobjects.SignInPage;
-import app.freecharge.pageobjects.SignOutPage;
-import app.freecharge.pageobjects.SwitchToWebUIPage;
+import app.freecharge.pages.ForgotPasswordPage;
+import app.freecharge.pages.HomePage;
+import app.freecharge.pages.MainActivityPage;
+import app.freecharge.pages.NetworkConnectionsPage;
+import app.freecharge.pages.NotificationsPage;
+import app.freecharge.pages.OffersPage;
+import app.freecharge.pages.ProductDetailsPage;
+import app.freecharge.pages.ProfilePage;
+import app.freecharge.pages.RegisterationPage;
+import app.freecharge.pages.SignInPage;
+import app.freecharge.pages.SignOutPage;
+import app.freecharge.pages.SwitchToWebUIPage;
 import io.appium.java_client.android.AndroidKeyCode;
 import org.apache.log4j.*;
 
@@ -75,15 +75,24 @@ public class FreechargeAppTests extends DriverInitialization {
 		signIn.Login();
 		signOut.Logout();
 	}
-
+	
 	@Test (priority =3)
+	public void Test_InValidLogin() throws IOException, InterruptedException
+	{
+		//SignIn page Tests
+		signIn.InvalidLogin();
+		
+	}
+
+
+	@Test (priority =4)
 	public void Test_forgotPasswordPage() throws Exception
 	{
 		// Forgot Password Tests
 		forgotPassword.ForgotPassword();
 	}
 
-	@Test (priority =4)
+	@Test (priority =5)
 	public void Test_profilePage() throws IOException, InterruptedException
 	{	
 		//Profile page Tests
@@ -94,21 +103,21 @@ public class FreechargeAppTests extends DriverInitialization {
 		signOut.Logout();
 	}
 
-	@Test (priority =5)
+	@Test (priority =6)
 	public void Test_facebookLogin() throws IOException, InterruptedException
 	{	//FaceBook Login validation
 		signIn.FaceBookLogin();
 		signOut.Logout();
 	}
 
-	@Test (priority =6)
+	@Test (priority =7)
 	public void Test_gmailLogin() throws IOException, InterruptedException
 	{	//Google ID login validation
 		signIn.GoogleLogin();
 		signOut.Logout();
 	}
 
-	@Test (priority =7)
+	@Test (priority =8)
 	public void Test_horizontalScroll() throws IOException, InterruptedException
 	{	//Horizontal Scroll validation
 		signIn.Login();
@@ -118,7 +127,7 @@ public class FreechargeAppTests extends DriverInitialization {
 	}
 
 
-	@Test (priority =8)
+	@Test (priority =9)
 	public void Test_productDetailspage() throws IOException, InterruptedException
 	{ // Product Details Validation tests
 		signIn.Login();
@@ -126,7 +135,7 @@ public class FreechargeAppTests extends DriverInitialization {
 		signOut.Logout();
 	}
 
-	@Test(priority =9)
+	@Test(priority =10)
 	public void Test_SwitchToWebUIPage() throws InterruptedException, IOException
 	{ // Switch to Freecharge WEBUI
 		signIn.Login();
@@ -135,7 +144,7 @@ public class FreechargeAppTests extends DriverInitialization {
 
 	}
 
-	@Test (priority =10)
+	@Test (priority =11)
 	public void Test_registrationPage() throws IOException, InterruptedException
 	{
 		Thread.sleep(1000);
@@ -143,7 +152,7 @@ public class FreechargeAppTests extends DriverInitialization {
 		registration.registration();
 	}
 
-	@Test (priority =11)
+	@Test (priority =12)
 	public void Test_networkConnection() throws InterruptedException, IOException
 	{ // Disable Network and try to Login with Google ID and Enable Network
 		signIn.Login_WithOutNetwork();

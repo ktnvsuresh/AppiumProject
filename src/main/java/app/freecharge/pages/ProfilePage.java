@@ -1,9 +1,11 @@
-package app.freecharge.pageobjects;
+package app.freecharge.pages;
 
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+
+import com.thoughtworks.selenium.webdriven.commands.GetElementPositionLeft;
 
 import app.freecharge.androiddriver.DriverInitialization;
 import app.freecharge.common.utils.ByLocator;
@@ -21,7 +23,7 @@ public class ProfilePage extends DriverInitialization{
 	Logger logger=Logger.getLogger(ProfilePage.class);
 	public void profileClick() throws InterruptedException
 	{
-		driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/title_text') and @text='Profile']") ).click();
+		driver.findElement(By.xpath(elementprop.getProperty("PROFILE_LINK")) ).click();
 		Thread.sleep(5000);
 	}
 
@@ -29,12 +31,12 @@ public class ProfilePage extends DriverInitialization{
 	public void myAccountDetails() throws InterruptedException{
 
 		profileClick();
-		driver.scrollTo("My account details");
+		driver.scrollTo(elementprop.getProperty("MY_ACCOUNT_DETAILS"));
 		// Click on My account details.
-		driver.findElement(By.name("My account details")).click();
+		driver.findElement(By.name(elementprop.getProperty("MY_ACCOUNT_DETAILS"))).click();
 		Thread.sleep(5000);
 		result = null;
-		result = driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/action_bar_title') and @text='Account Details']")).getText();
+		result = driver.findElement(By.xpath(elementprop.getProperty("ACCOUNT_DETAILS_LINK"))).getText();
 		assert result.equals("Account Details"):"Expected value: Account Details:" + result;
 		driver.sendKeyEvent(AndroidKeyCode.BACK);
 		logger.info("Back button functioned");
@@ -44,12 +46,12 @@ public class ProfilePage extends DriverInitialization{
 	@Override
 	public void viewTransactionHistory() throws InterruptedException{
 		profileClick();
-		driver.scrollTo("View transaction history");
+		driver.scrollTo(elementprop.getProperty("VIEW_TRANSACTIONS_HISTORY_LINK"));
 		// Click on View transaction history.
-		driver.findElement(By.name("View transaction history")).click();
+		driver.findElement(By.name(elementprop.getProperty("VIEW_TRANSACTIONS_HISTORY_LINK"))).click();
 		Thread.sleep(5000);
 		result = null;
-		result = driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/action_bar_title') and @text='Transactions']")).getText();
+		result = driver.findElement(By.xpath(elementprop.getProperty("TITLE_TRANSACTIONS"))).getText();
 		assert result.equals("Transactions"):"Expected value: Transactions:" + result;
 		driver.findElementByClassName("android.widget.ImageButton").click();
 		logger.info("View Transaction History screen validation completed");
@@ -59,14 +61,14 @@ public class ProfilePage extends DriverInitialization{
 	public void addAddress() throws InterruptedException{
 
 		profileClick();
-		driver.scrollTo("My account details");
+		driver.scrollTo(elementprop.getProperty("MY_ACCOUNT_DETAILS"));
 		// Click on My account details.
-		driver.findElement(By.name("My account details")).click();
+		driver.findElement(By.name(elementprop.getProperty("MY_ACCOUNT_DETAILS"))).click();
 		// Click on Addresses.
-		driver.scrollTo("Addresses");
-		driver.findElementByName("Addresses").click();
+		driver.scrollTo(elementprop.getProperty("ADDRESSES"));
+		driver.findElementByName(elementprop.getProperty("ADDRESSES")).click();
 		result = null;
-		result = driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/action_bar_title') and contains(@text,'Add address') or contains(@text,'Addresses')]")).getText();
+		result = driver.findElement(By.xpath(elementprop.getProperty("TITLE_ADDRESSES"))).getText();
 		logger.info(result);
 
 		if (result.equals("Add address")){
@@ -84,9 +86,9 @@ public class ProfilePage extends DriverInitialization{
 	public void deleteAddress(){
 		try{
 
-			if ( driver.findElement(By.xpath("//android.widget.ImageView[contains(@resource-id,'com.freecharge.android:id/dustbin')]")).isDisplayed()== true){
-				driver.findElement(By.xpath("//android.widget.ImageView[contains(@resource-id,'com.freecharge.android:id/dustbin')]")).click();
-				driver.findElement(By.xpath("//android.widget.Button[contains(@resource-id,'android:id/button1') and @text='yes']")).click();
+			if ( driver.findElement(By.xpath(elementprop.getProperty("DELETE_BUTTON"))).isDisplayed()== true){
+				driver.findElement(By.xpath(elementprop.getProperty("DELETE_BUTTON"))).click();
+				driver.findElement(By.xpath(elementprop.getProperty("DELETE_YES_BUTTON"))).click();
 			}
 			else
 			{
@@ -104,17 +106,17 @@ public class ProfilePage extends DriverInitialization{
 
 	public void addAddresses(){
 		try{
-			typeEditBox(ByLocator.id, "address_name", "K Suresh");
-			typeEditBox(ByLocator.id, "address_address","2-3-754/5/1");
-			typeEditBox(ByLocator.id, "address_city_spinner","Hyderabad");
+			typeEditBox(ByLocator.id, elementprop.getProperty("ADDRESS_NAME"), "K Suresh");
+			typeEditBox(ByLocator.id, elementprop.getProperty("ADDRESS_ADDRESS"),"2-3-754/5/1");
+			typeEditBox(ByLocator.id, elementprop.getProperty("ADDRESS_CITY"),"Hyderabad");
 			dropDown_Select("State","Telangana");
 			driver.hideKeyboard();
-			typeEditBox(ByLocator.id, "address_postal_code","500013");
+			typeEditBox(ByLocator.id, elementprop.getProperty("ADDRESS_POSTAL_CODE"),"500013");
 			driver.hideKeyboard();
-			typeEditBox(ByLocator.id, "address_mobile_number","9177306662");
+			typeEditBox(ByLocator.id, elementprop.getProperty("ADDRESS_MOBILE_NUMBER"),"9177306662");
 			driver.hideKeyboard();
-			select_CheckBox("home_checkbox");
-			clickButton(ByLocator.id, "add_new_submit_button");
+			select_CheckBox(elementprop.getProperty("HOME_CHECKBOX"));
+			clickButton(ByLocator.id, elementprop.getProperty("ADDRESS_SUBMIT_BUTTON"));
 			logger.info("Address added Successfully");
 			Thread.sleep(10000);
 			driver.sendKeyEvent(AndroidKeyCode.BACK);

@@ -1,18 +1,15 @@
-2016-10-05 00:09:18 INFO  DriverInitialization:49 - App is already opened
-2016-10-05 00:09:18 INFO  DriverInitialization:49 - App is already opened
-2016-10-05 00:09:18 INFO  DriverInitialization:49 - App is already opened
-2016-10-05 00:09:18 INFO  DriverInitialization:49 - App is already opened
-2016-10-05 00:09:18 INFO  DriverInitialization:49 - App is already opened
-2016-10-05 00:09:18 INFO  DriverInitialization:49 - App is already opened
-2016-10-05 00:09:18 INFO  DriverInitialization:49 - App is already opened
-2016-10-05 00:09:18 INFO  DriverInitialization:49 - App is already opened
-2016-10-05 00:09:18 INFO  DriverInitialization:49 - App is already opened
-2016-10-05 00:09:18 INFO  DriverInitialization:49 - App is already opened
-2016-10-05 00:09:18 INFO  DriverInitialization:49 - App is already opened
-2016-10-05 00:09:18 INFO  DriverInitialization:49 - App is already opened
-2016-10-05 00:09:18 INFO  DriverInitialization:49 - App is already opened
-2016-10-05 00:10:01 INFO  NetworkConnectionsPage:31 - Network connection Disabled
-2016-10-05 00:10:14 INFO  SignInPage:77 - Please check your login details and try again later
-2016-10-05 00:10:14 INFO  SignInPage:85 - Network down so User Not able to login with Google ID
-2016-10-05 00:10:40 INFO  NetworkConnectionsPage:37 - Network connection Enabled
-2016-10-05 00:10:40 INFO  DriverInitialization:23 - inside quit method...
+2016-10-05 18:28:14 INFO  DriverInitialization:117 - D:\Softwares\eclipse\workspace\Andriod
+2016-10-05 18:28:14 INFO  DriverInitialization:121 - Freecharge_ElementLocators.properties is exist !
+2016-10-05 18:28:34 INFO  DriverInitialization:55 - App is already opened
+2016-10-05 18:28:34 INFO  DriverInitialization:55 - App is already opened
+2016-10-05 18:28:34 INFO  DriverInitialization:55 - App is already opened
+2016-10-05 18:28:34 INFO  DriverInitialization:55 - App is already opened
+2016-10-05 18:28:34 INFO  DriverInitialization:55 - App is already opened
+2016-10-05 18:28:34 INFO  DriverInitialization:55 - App is already opened
+2016-10-05 18:28:34 INFO  DriverInitialization:55 - App is already opened
+2016-10-05 18:28:34 INFO  DriverInitialization:55 - App is already opened
+2016-10-05 18:28:34 INFO  DriverInitialization:55 - App is already opened
+2016-10-05 18:28:34 INFO  DriverInitialization:55 - App is already opened
+2016-10-05 18:28:34 INFO  DriverInitialization:55 - App is already opened
+2016-10-05 18:28:34 INFO  DriverInitialization:55 - App is already opened
+2016-10-05 18:37:45 INFO  DriverInitialization:23 - inside quit method...
