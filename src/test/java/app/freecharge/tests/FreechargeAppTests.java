@@ -25,6 +25,11 @@ import org.apache.log4j.*;
 
 public class FreechargeAppTests extends DriverInitialization {
 
+	public FreechargeAppTests() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	Process p;
 	String cmd="adb install D:/Softwares/APPIUM/Sample_apk_files/FreeCharge.apk";
 
@@ -60,6 +65,7 @@ public class FreechargeAppTests extends DriverInitialization {
 		forgotPassword = new ForgotPasswordPage();
 		switchToWebUI=new SwitchToWebUIPage();
 		notificationsPage = new NotificationsPage();
+		
 	}
 
 	@Test (priority =1)
@@ -76,7 +82,7 @@ public class FreechargeAppTests extends DriverInitialization {
 		signOut.Logout();
 	}
 	
-	@Test (priority =3)
+/*	@Test (priority =3)
 	public void Test_InValidLogin() throws IOException, InterruptedException
 	{
 		//SignIn page Tests
@@ -157,7 +163,7 @@ public class FreechargeAppTests extends DriverInitialization {
 	{ // Disable Network and try to Login with Google ID and Enable Network
 		signIn.Login_WithOutNetwork();
 	}
-
+*/
 
 	@AfterTest
 	public void closeConnections()

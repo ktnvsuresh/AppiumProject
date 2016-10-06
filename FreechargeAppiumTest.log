@@ -1,5 +1,8 @@
-2016-10-05 22:29:53 INFO  DriverInitialization:115 - D:\eclipse-jee-mars\workspace\AppiumProject
-2016-10-05 22:29:53 INFO  DriverInitialization:119 - Freecharge_ElementLocators.properties is exist !
-2016-10-05 22:30:19 INFO  DriverInitialization:108 - App installed
-2016-10-05 22:31:03 INFO  DriverInitialization:257 - Addon's are not displayed
-2016-10-05 22:31:03 INFO  DriverInitialization:23 - inside quit method...
+2016-10-06 17:19:49 INFO  DriverInitialization:119 - D:\Softwares\eclipse\workspace\Andriod
+2016-10-06 17:19:49 INFO  DriverInitialization:123 - Freecharge_ElementLocators.properties is exist !
+2016-10-06 17:20:08 INFO  DriverInitialization:112 - App installed
+2016-10-06 17:20:30 INFO  DriverInitialization:261 - Addon's are not displayed
+2016-10-06 17:20:32 INFO  SignInPage:47 - Suresh
+2016-10-06 17:20:41 INFO  SignInPage:50 - User Successfully Loggedin
+2016-10-06 17:20:47 INFO  SignOutPage:25 - User Successfully LoggedOut
+2016-10-06 17:20:47 INFO  DriverInitialization:23 - inside quit method...

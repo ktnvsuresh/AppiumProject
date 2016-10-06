@@ -29,6 +29,6 @@ public class SwitchToWebUIPage extends DriverInitialization{
 		logger.info(result);
 		assert result.equals("https://www.freecharge.in/app/termsandconditions.htm"):"Expected value: https://www.freecharge.in/app/termsandconditions.htm" + result;
 		logger.info("Terms and Conditions validation completed in Freecharge WEB UI");
-		driver.sendKeyEvent(AndroidKeyCode.BACK);
+		//driver.sendKeyEvent(AndroidKeyCode.BACK);
 	}
 }

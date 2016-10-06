@@ -18,6 +18,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import app.freecharge.common.utils.ByLocator;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import org.apache.log4j.Logger;
 
@@ -27,7 +29,8 @@ import org.apache.log4j.Logger;
  */
 public class DriverInitialization {
 
-	public static AndroidDriver driver;
+	public static AppiumDriver<MobileElement> driver;
+	
 	public static boolean isdriverinitialized;
 	public static Logger logger = Logger.getLogger(DriverInitialization.class);
 	public String result =null;	
@@ -43,8 +46,8 @@ public class DriverInitialization {
 	static {
 		loadElementLocators();
 	}
+	
 	public DriverInitialization(){
-
 		initElements();
 	}
 
@@ -59,13 +62,15 @@ public class DriverInitialization {
 
 		try{
 
-			//caps.setCapability("deviceName", "emulator-5554");
-			caps.setCapability("deviceName", "acd2ccd3");
+			caps.setCapability("deviceName", "emulator-5554");
+			//caps.setCapability("deviceName", "acd2ccd3");
 			caps.setCapability("platformName", "Android");
 			caps.setCapability("platformVersion", "6.1");
 			caps.setCapability("appPackage", "com.freecharge.android");
 			caps.setCapability("appActivity", "com.freecharge.ui.MainSplashActivity");
-			driver=new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), caps);
+		/*	if (!restApplication)
+				caps.setCapability("noReset", true);*/
+			driver=new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), caps);
 			driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 			isdriverinitialized=true;
 			Actions actions = new Actions(driver);
@@ -74,7 +79,6 @@ public class DriverInitialization {
 
 		}
 	}
-
 
 	// This method Is responsible for starting appium server.
 	public void appiumStart() throws IOException, InterruptedException {

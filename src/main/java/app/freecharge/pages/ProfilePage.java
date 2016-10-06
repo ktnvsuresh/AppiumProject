@@ -38,14 +38,14 @@ public class ProfilePage extends DriverInitialization{
 		result = null;
 		result = driver.findElement(By.xpath(elementprop.getProperty("ACCOUNT_DETAILS_LINK"))).getText();
 		assert result.equals("Account Details"):"Expected value: Account Details:" + result;
-		driver.sendKeyEvent(AndroidKeyCode.BACK);
+		//driver.sendKeyEvent(AndroidKeyCode.BACK);
 		logger.info("Back button functioned");
 		logger.info("My Account Details screen validation completed");
 	}
 
 	@Override
 	public void viewTransactionHistory() throws InterruptedException{
-		driver.sendKeyEvent(AndroidKeyCode.BACK);
+		//driver.sendKeyEvent(AndroidKeyCode.BACK);
 		profileClick();
 		driver.scrollTo(elementprop.getProperty("VIEW_TRANSACTIONS_HISTORY_LINK"));
 		// Click on View transaction history.
@@ -60,7 +60,7 @@ public class ProfilePage extends DriverInitialization{
 
 	@Override
 	public void addAddress() throws InterruptedException{
-		driver.sendKeyEvent(AndroidKeyCode.BACK);
+		//driver.sendKeyEvent(AndroidKeyCode.BACK);
 		profileClick();
 		driver.scrollTo(elementprop.getProperty("MY_ACCOUNT_DETAILS"));
 		// Click on My account details.
@@ -121,7 +121,7 @@ public class ProfilePage extends DriverInitialization{
 			clickButton(ByLocator.id, elementprop.getProperty("ADDRESS_SUBMIT_BUTTON"));
 			logger.info("Address added Successfully");
 			Thread.sleep(10000);
-			driver.sendKeyEvent(AndroidKeyCode.BACK);
+			//driver.sendKeyEvent(AndroidKeyCode.BACK);
 		}
 		catch(Exception e){
 			logger.error(e);
