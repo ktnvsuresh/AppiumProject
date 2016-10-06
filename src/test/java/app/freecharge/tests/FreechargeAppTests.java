@@ -82,7 +82,7 @@ public class FreechargeAppTests extends DriverInitialization {
 		signOut.Logout();
 	}
 	
-/*	@Test (priority =3)
+	@Test (priority =3)
 	public void Test_InValidLogin() throws IOException, InterruptedException
 	{
 		//SignIn page Tests
@@ -158,7 +158,7 @@ public class FreechargeAppTests extends DriverInitialization {
 		registration.registration();
 	}
 
-	@Test (priority =12)
+	/*@Test (priority =12)
 	public void Test_networkConnection() throws InterruptedException, IOException
 	{ // Disable Network and try to Login with Google ID and Enable Network
 		signIn.Login_WithOutNetwork();

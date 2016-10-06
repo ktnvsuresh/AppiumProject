@@ -20,6 +20,8 @@ public class NetworkConnectionsPage extends DriverInitialization
 		try{
 			// Identify Network status
 			NetworkConnectionSetting networkConnection = driver.getNetworkConnection();
+			
+			
 			Boolean status = networkConnection.wifiEnabled();
 			System.out.println(status);
 

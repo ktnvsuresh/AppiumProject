@@ -18,9 +18,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import app.freecharge.common.utils.ByLocator;
+import app.freecharge.pageobjects.PopupCloseObjects;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
+
 import org.apache.log4j.Logger;
 
 /**
@@ -30,7 +32,7 @@ import org.apache.log4j.Logger;
 public class DriverInitialization {
 
 	public static AppiumDriver<MobileElement> driver;
-	
+
 	public static boolean isdriverinitialized;
 	public static Logger logger = Logger.getLogger(DriverInitialization.class);
 	public String result =null;	
@@ -42,11 +44,11 @@ public class DriverInitialization {
 	public String cmd1 = nodePath + " " + appiumJSPath;
 	public String OTPValue=null;
 
-	protected static Properties elementprop;
+	/*protected static Properties elementprop;
 	static {
 		loadElementLocators();
-	}
-	
+	}*/
+
 	public DriverInitialization(){
 		initElements();
 	}
@@ -68,7 +70,7 @@ public class DriverInitialization {
 			caps.setCapability("platformVersion", "6.1");
 			caps.setCapability("appPackage", "com.freecharge.android");
 			caps.setCapability("appActivity", "com.freecharge.ui.MainSplashActivity");
-		/*	if (!restApplication)
+			/*	if (!restApplication)
 				caps.setCapability("noReset", true);*/
 			driver=new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), caps);
 			driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
@@ -113,7 +115,7 @@ public class DriverInitialization {
 		}
 	}
 
-	public static void loadElementLocators(){
+	/*public static void loadElementLocators(){
 		elementprop = new Properties();
 		String workingDir = System.getProperty("user.dir");
 		logger.info(workingDir);
@@ -133,7 +135,7 @@ public class DriverInitialization {
 		}else{
 			logger.info(f.getName() + " not found!!!");
 		}
-	}
+	}*/
 
 
 	public static void typeEditBox(ByLocator locatorType,String locator, String value)
@@ -242,14 +244,15 @@ public class DriverInitialization {
 
 	}
 
+	PopupCloseObjects popupCloseObjects =new PopupCloseObjects();
 	public void popupClose(){
 		//if(driver.findElement(By.id("com.freecharge.android:id/frag_web_view"))!=null){
 		try{
 
 
-			if ( driver.findElement(By.xpath(elementprop.getProperty("IMAGE_CLOSE"))).isDisplayed() == true || driver.findElement(By.xpath(elementprop.getProperty("SPLASH_MESSAGE_CLOSE"))).isDisplayed()== true){
+			if ( popupCloseObjects.IMAGE_CLOSE.isDisplayed() == true || popupCloseObjects.SPLASH_MESSAGE_CLOSE.isDisplayed()== true){
 				//if(driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/frag_web_view')]"))!=null){
-				clickButton(ByLocator.id, elementprop.getProperty("SPLASH_MESSAGE_CLOSE"));
+				popupCloseObjects.SPLASH_MESSAGE_CLOSE.click();;
 			}
 			else
 			{

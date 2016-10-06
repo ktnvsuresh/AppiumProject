@@ -61,7 +61,7 @@ public class AppiumStartAndStop {
  @Test
  public void ScrollToView() {
   // Scroll till element which contains "Views" text If It Is not visible on screen.
-  driver.scrollTo("Views");
+ // driver.scrollTo("Views");
   // Click on Views.
   driver.findElement(By.name("Views")).click();
  }

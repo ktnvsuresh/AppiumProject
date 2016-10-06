@@ -2,22 +2,15 @@ package app.freecharge.pages;
 
 
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
-
-import com.relevantcodes.extentreports.LogStatus;
-
 import app.freecharge.androiddriver.DriverInitialization;
-import app.freecharge.common.utils.ByLocator;
-import app.freecharge.pageobjects.SigninPageObject;
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
+import app.freecharge.pageobjects.SigninPageObjects;
 import io.appium.java_client.android.AndroidKeyCode;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 public class SignInPage extends DriverInitialization{		
 
-	public SigninPageObject signinPageObjects= new SigninPageObject();
+	public SigninPageObjects signinPageObjects= new SigninPageObjects();
 	public SignInPage(){
 		super();
 		PageFactory.initElements(new AppiumFieldDecorator(driver),
@@ -34,8 +27,8 @@ public class SignInPage extends DriverInitialization{
 	public void Login() throws InterruptedException
 	{
 		
-		signinPageObjects.EMAIL_EDIT_TEXT.sendKeys("9177306662");
-		signinPageObjects.PASSWORD_Edit_TEXT.sendKeys("kowtha");
+		signinPageObjects.EMAIL.sendKeys("9177306662");
+		signinPageObjects.PASSWORD.sendKeys("kowtha");
 		signinPageObjects.LOGIN_BUTTON.click();
 		Thread.sleep(10000);
 		popupClose();
@@ -50,12 +43,12 @@ public class SignInPage extends DriverInitialization{
 	@Override
 	public void InvalidLogin() throws InterruptedException
 	{
-		typeEditBox(ByLocator.id,elementprop.getProperty("EMAIL_EDIT_TEXT"), "9876543210");
-		typeEditBox(ByLocator.id,elementprop.getProperty("PASSWORD_Edit_TEXT"), "xxxxxxx");
-		clickButton(ByLocator.id, elementprop.getProperty("LOGIN_BUTTON"));
+		signinPageObjects.EMAIL.sendKeys("9876543210");
+		signinPageObjects.PASSWORD.sendKeys("XXXXXXX");
+		signinPageObjects.LOGIN_BUTTON.click();
 		Thread.sleep(10000);
 		Boolean result = false;
-		result = driver.findElement(By.id(elementprop.getProperty("LOGIN_BUTTON"))).isDisplayed();
+		result = signinPageObjects.LOGIN_BUTTON.isDisplayed();
 		logger.info(result);
 		assert result.equals(true):"Expected value: true" + result;
 		logger.info("Incorrect User details");
@@ -63,11 +56,11 @@ public class SignInPage extends DriverInitialization{
 	@Override
 	public void FaceBookLogin() throws InterruptedException
 	{
-		clickButton(ByLocator.id, elementprop.getProperty("FACEBOOK_SIGN_BUTTON"));
+		signinPageObjects.FACEBOOK_SIGNIN_BUTTON.click();
 		Thread.sleep(10000);
 		popupClose();
 		result = null;
-		result = driver.findElement(By.xpath(elementprop.getProperty("ACTION_BAR_TITLE__FACEBOOK_LOGIN"))).getText();
+		result = signinPageObjects.ACTION_BAR_TITLE__FACEBOOK_LOGIN.getText();;
 		assert result.equals("Ramya Suresh"):"Expected value: Ramya Suresh:" + result;
 		logger.info("User Successfully Loggedin with Facebook ID");
 
@@ -76,13 +69,13 @@ public class SignInPage extends DriverInitialization{
 	@Override
 	public void GoogleLogin() throws InterruptedException
 	{
-		clickButton(ByLocator.id,elementprop.getProperty("GOOGLE_SIGN_BUTTON"));
+		signinPageObjects.GOOGLE_SIGNIN_BUTTON.click();
 		radioButton("ramyamca1@gmail.com");
-		driver.findElement(By.name("OK")).click();
+		signinPageObjects.OK.click();
 		Thread.sleep(10000);
 		popupClose();
 		result = null;
-		result = driver.findElement(By.xpath(elementprop.getProperty("ACTION_BAR_TITLE__GOOGLE_LOGIN"))).getText();
+		result = signinPageObjects.ACTION_BAR_TITLE__GOOGLE_LOGIN.getText();
 		assert result.equals("Ramya Suresh"):"Expected value: Ramya Suresh:" + result;
 		logger.info("User Successfully Loggedin with Goole ID");
 	}
@@ -92,11 +85,11 @@ public class SignInPage extends DriverInitialization{
 	public void Login_WithOutNetwork() throws InterruptedException
 	{	
 		networkPage = new NetworkConnectionsPage();
-		clickButton(ByLocator.id, elementprop.getProperty("GOOGLE_SIGN_BUTTON"));
+		signinPageObjects.GOOGLE_SIGNIN_BUTTON.click();
 		Thread.sleep(10000);
 		networkPage.networkConnections();
 		radioButton("ramyamca1@gmail.com");
-		driver.findElement(By.name("OK")).click();
+		signinPageObjects.OK.click();
 		Thread.sleep(10000);
 		/*result = null;
 		result = driver.findElement(By.xpath("//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/snackbar_text')]")).getText();
@@ -111,6 +104,8 @@ public class SignInPage extends DriverInitialization{
 		logger.info("Network down so User Not able to login with Google ID");*/
 		//driver.sendKeyEvent(AndroidKeyCode.BACK);
 		//driver.sendKeyEvent(AndroidKeyCode.BACK);
+		driver.navigate().back();
+		driver.navigate().back();
 		networkPage.networkConnections();
 	}
 }

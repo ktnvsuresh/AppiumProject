@@ -6,12 +6,12 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 
 
 
-public class SigninPageObject {
+public class SigninPageObjects {
 	@AndroidFindBy(id = "com.freecharge.android:id/email_edit_text")
-	public MobileElement EMAIL_EDIT_TEXT;
+	public MobileElement EMAIL;
 	
 	@AndroidFindBy(id = "com.freecharge.android:id/password_edit_text")
-	public MobileElement PASSWORD_Edit_TEXT;
+	public MobileElement PASSWORD;
 	
 	@AndroidFindBy(id = "com.freecharge.android:id/login_button")
 	public MobileElement LOGIN_BUTTON;
@@ -24,6 +24,14 @@ public class SigninPageObject {
 	
 	@AndroidFindBy(xpath = "//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/action_bar_title') and @text='Suresh']")
 	public MobileElement ACTION_BAR_TITLE_LOGIN;
-
+	
+	@AndroidFindBy(xpath = "//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/action_bar_title') and @text='Ramya Suresh']")
+	public MobileElement ACTION_BAR_TITLE__FACEBOOK_LOGIN;
+	
+	@AndroidFindBy(xpath = "//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/action_bar_title') and @text='Ramya Suresh']")
+	public MobileElement ACTION_BAR_TITLE__GOOGLE_LOGIN;
+	
+	@AndroidFindBy(id = "OK")
+	public MobileElement OK;
 	
 }

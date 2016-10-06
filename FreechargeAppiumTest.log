@@ -1,8 +1,20 @@
-2016-10-06 17:19:49 INFO  DriverInitialization:119 - D:\Softwares\eclipse\workspace\Andriod
-2016-10-06 17:19:49 INFO  DriverInitialization:123 - Freecharge_ElementLocators.properties is exist !
-2016-10-06 17:20:08 INFO  DriverInitialization:112 - App installed
-2016-10-06 17:20:30 INFO  DriverInitialization:261 - Addon's are not displayed
-2016-10-06 17:20:32 INFO  SignInPage:47 - Suresh
-2016-10-06 17:20:41 INFO  SignInPage:50 - User Successfully Loggedin
-2016-10-06 17:20:47 INFO  SignOutPage:25 - User Successfully LoggedOut
-2016-10-06 17:20:47 INFO  DriverInitialization:23 - inside quit method...
+2016-10-07 00:24:08 INFO  DriverInitialization:114 - App installed
+2016-10-07 00:24:31 INFO  DriverInitialization:264 - Addon's are not displayed
+2016-10-07 00:24:31 INFO  SignInPage:37 - Suresh
+2016-10-07 00:24:31 INFO  SignInPage:40 - User Successfully Loggedin
+2016-10-07 00:24:38 INFO  SignOutPage:32 - User Successfully LoggedOut
+2016-10-07 00:25:01 INFO  SignInPage:52 - true
+2016-10-07 00:25:01 INFO  SignInPage:54 - Incorrect User details
+2016-10-07 00:25:30 INFO  DriverInitialization:264 - Addon's are not displayed
+2016-10-07 00:25:30 INFO  SignInPage:37 - Suresh
+2016-10-07 00:25:30 INFO  SignInPage:40 - User Successfully Loggedin
+2016-10-07 00:25:45 INFO  ProfilePage:50 - Back button functioned
+2016-10-07 00:25:45 INFO  ProfilePage:51 - My Account Details screen validation completed
+2016-10-07 00:26:05 INFO  ProfilePage:86 - Addresses
+2016-10-07 00:26:53 INFO  ProfilePage:136 - Address added Successfully
+2016-10-07 00:27:25 INFO  ProfilePage:68 - View Transaction History screen validation completed
+2016-10-07 00:27:36 INFO  SignOutPage:32 - User Successfully LoggedOut
+2016-10-07 00:27:46 INFO  DriverInitialization:264 - Addon's are not displayed
+2016-10-07 00:27:47 INFO  SignInPage:65 - User Successfully Loggedin with Facebook ID
+2016-10-07 00:27:54 INFO  SignOutPage:32 - User Successfully LoggedOut
+2016-10-07 00:28:27 INFO  DriverInitialization:31 - inside quit method...

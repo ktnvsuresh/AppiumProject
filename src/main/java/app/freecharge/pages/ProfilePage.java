@@ -4,26 +4,33 @@ package app.freecharge.pages;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 
 import com.thoughtworks.selenium.webdriven.commands.GetElementPositionLeft;
 
 import app.freecharge.androiddriver.DriverInitialization;
 import app.freecharge.common.utils.ByLocator;
+import app.freecharge.pageobjects.ProfilePageObjects;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidKeyCode;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 public class ProfilePage extends DriverInitialization{		
 
-
+	ProfilePageObjects profilePageObjects =new ProfilePageObjects();
 	public ProfilePage(){
 		super();
 
+		PageFactory.initElements(new AppiumFieldDecorator(driver),
+				profilePageObjects);
 	}
+
+
 
 	Logger logger=Logger.getLogger(ProfilePage.class);
 	public void profileClick() throws InterruptedException
 	{
-		driver.findElement(By.xpath(elementprop.getProperty("PROFILE_LINK")) ).click();
+		profilePageObjects.PROFILE_LINK.click();
 		Thread.sleep(5000);
 	}
 
@@ -31,12 +38,13 @@ public class ProfilePage extends DriverInitialization{
 	public void myAccountDetails() throws InterruptedException{
 
 		profileClick();
-		driver.scrollTo(elementprop.getProperty("MY_ACCOUNT_DETAILS"));
+		//driver.scrollTo(elementprop.getProperty("MY_ACCOUNT_DETAILS"));
+		driver.scrollTo("My account details");
 		// Click on My account details.
-		driver.findElement(By.name(elementprop.getProperty("MY_ACCOUNT_DETAILS"))).click();
+		profilePageObjects.MY_ACCOUNT_DETAILS.click();
 		Thread.sleep(5000);
 		result = null;
-		result = driver.findElement(By.xpath(elementprop.getProperty("ACCOUNT_DETAILS_LINK"))).getText();
+		result = profilePageObjects.ACCOUNT_DETAILS_LINK.getText();
 		assert result.equals("Account Details"):"Expected value: Account Details:" + result;
 		//driver.sendKeyEvent(AndroidKeyCode.BACK);
 		logger.info("Back button functioned");
@@ -46,13 +54,15 @@ public class ProfilePage extends DriverInitialization{
 	@Override
 	public void viewTransactionHistory() throws InterruptedException{
 		//driver.sendKeyEvent(AndroidKeyCode.BACK);
+		driver.navigate().back();
 		profileClick();
-		driver.scrollTo(elementprop.getProperty("VIEW_TRANSACTIONS_HISTORY_LINK"));
+		//driver.scrollTo(elementprop.getProperty("VIEW_TRANSACTIONS_HISTORY_LINK"));
+		driver.scrollTo("View transaction history");
 		// Click on View transaction history.
-		driver.findElement(By.name(elementprop.getProperty("VIEW_TRANSACTIONS_HISTORY_LINK"))).click();
+		profilePageObjects.VIEW_TRANSACTIONS_HISTORY_LINK.click();
 		Thread.sleep(5000);
 		result = null;
-		result = driver.findElement(By.xpath(elementprop.getProperty("TITLE_TRANSACTIONS"))).getText();
+		result =profilePageObjects.TITLE_TRANSACTIONS.getText();
 		assert result.equals("Transactions"):"Expected value: Transactions:" + result;
 		driver.findElementByClassName("android.widget.ImageButton").click();
 		logger.info("View Transaction History screen validation completed");
@@ -61,15 +71,18 @@ public class ProfilePage extends DriverInitialization{
 	@Override
 	public void addAddress() throws InterruptedException{
 		//driver.sendKeyEvent(AndroidKeyCode.BACK);
+		driver.navigate().back();
 		profileClick();
-		driver.scrollTo(elementprop.getProperty("MY_ACCOUNT_DETAILS"));
+		//driver.scrollTo(elementprop.getProperty("MY_ACCOUNT_DETAILS"));
+		driver.scrollTo("My account details");
 		// Click on My account details.
-		driver.findElement(By.name(elementprop.getProperty("MY_ACCOUNT_DETAILS"))).click();
+		profilePageObjects.MY_ACCOUNT_DETAILS.click();
 		// Click on Addresses.
-		driver.scrollTo(elementprop.getProperty("ADDRESSES"));
-		driver.findElementByName(elementprop.getProperty("ADDRESSES")).click();
+		//driver.scrollTo(elementprop.getProperty("ADDRESSES"));
+		driver.scrollTo("ADDRESSES");
+		profilePageObjects.ADDRESSES.click();
 		result = null;
-		result = driver.findElement(By.xpath(elementprop.getProperty("TITLE_ADDRESSES"))).getText();
+		result = profilePageObjects.TITLE_ADDRESSES.getText();
 		logger.info(result);
 
 		if (result.equals("Add address")){
@@ -87,9 +100,9 @@ public class ProfilePage extends DriverInitialization{
 	public void deleteAddress(){
 		try{
 
-			if ( driver.findElement(By.xpath(elementprop.getProperty("DELETE_BUTTON"))).isDisplayed()== true){
-				driver.findElement(By.xpath(elementprop.getProperty("DELETE_BUTTON"))).click();
-				driver.findElement(By.xpath(elementprop.getProperty("DELETE_YES_BUTTON"))).click();
+			if ( profilePageObjects.DELETE_BUTTON.isDisplayed()== true){
+				profilePageObjects.DELETE_BUTTON.click();
+				profilePageObjects.DELETE_YES_BUTTON.click();
 			}
 			else
 			{
@@ -107,21 +120,23 @@ public class ProfilePage extends DriverInitialization{
 
 	public void addAddresses(){
 		try{
-			typeEditBox(ByLocator.id, elementprop.getProperty("ADDRESS_NAME"), "K Suresh");
-			typeEditBox(ByLocator.id, elementprop.getProperty("ADDRESS_ADDRESS"),"2-3-754/5/1");
-			typeEditBox(ByLocator.id, elementprop.getProperty("ADDRESS_CITY"),"Hyderabad");
-			dropDown_Select(elementprop.getProperty("STATE"),"Telangana");
+			profilePageObjects.ADDRESS_NAME.sendKeys("K Suresh");
+			profilePageObjects.ADDRESS_ADDRESS.sendKeys("2-3-754/5/1");
+			profilePageObjects.ADDRESS_CITY.sendKeys("Hyderabad");
+			//profilePageObjects.STATE.sendKeys("Telangana");
+			dropDown_Select("State","Telangana");
 			driver.hideKeyboard();
-			typeEditBox(ByLocator.id, elementprop.getProperty("ADDRESS_POSTAL_CODE"),"500013");
+			profilePageObjects.ADDRESS_POSTAL_CODE.sendKeys("500013");
 			driver.hideKeyboard();
-			typeEditBox(ByLocator.id, elementprop.getProperty("ADDRESS_MOBILE_NUMBER"),"9177306662");
+			profilePageObjects.ADDRESS_MOBILE_NUMBER.sendKeys("9177306662");
 			driver.hideKeyboard();
 			//select_CheckBox(elementprop.getProperty("HOME_CHECKBOX"));
 			Thread.sleep(5000);
-			clickButton(ByLocator.id, elementprop.getProperty("ADDRESS_SUBMIT_BUTTON"));
+			profilePageObjects.ADDRESS_SUBMIT_BUTTON.click();
 			logger.info("Address added Successfully");
 			Thread.sleep(10000);
 			//driver.sendKeyEvent(AndroidKeyCode.BACK);
+			driver.navigate().back();
 		}
 		catch(Exception e){
 			logger.error(e);
