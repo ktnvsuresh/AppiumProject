@@ -1,20 +1,59 @@
-2016-10-07 00:24:08 INFO  DriverInitialization:114 - App installed
-2016-10-07 00:24:31 INFO  DriverInitialization:264 - Addon's are not displayed
-2016-10-07 00:24:31 INFO  SignInPage:37 - Suresh
-2016-10-07 00:24:31 INFO  SignInPage:40 - User Successfully Loggedin
-2016-10-07 00:24:38 INFO  SignOutPage:32 - User Successfully LoggedOut
-2016-10-07 00:25:01 INFO  SignInPage:52 - true
-2016-10-07 00:25:01 INFO  SignInPage:54 - Incorrect User details
-2016-10-07 00:25:30 INFO  DriverInitialization:264 - Addon's are not displayed
-2016-10-07 00:25:30 INFO  SignInPage:37 - Suresh
-2016-10-07 00:25:30 INFO  SignInPage:40 - User Successfully Loggedin
-2016-10-07 00:25:45 INFO  ProfilePage:50 - Back button functioned
-2016-10-07 00:25:45 INFO  ProfilePage:51 - My Account Details screen validation completed
-2016-10-07 00:26:05 INFO  ProfilePage:86 - Addresses
-2016-10-07 00:26:53 INFO  ProfilePage:136 - Address added Successfully
-2016-10-07 00:27:25 INFO  ProfilePage:68 - View Transaction History screen validation completed
-2016-10-07 00:27:36 INFO  SignOutPage:32 - User Successfully LoggedOut
-2016-10-07 00:27:46 INFO  DriverInitialization:264 - Addon's are not displayed
-2016-10-07 00:27:47 INFO  SignInPage:65 - User Successfully Loggedin with Facebook ID
-2016-10-07 00:27:54 INFO  SignOutPage:32 - User Successfully LoggedOut
-2016-10-07 00:28:27 INFO  DriverInitialization:31 - inside quit method...
+2016-10-07 08:40:44 INFO  DriverInitialization:114 - App installed
+2016-10-07 08:40:44 INFO  DriverInitialization:272 - Taking the screenshot into a file: D:\eclipse-jee-mars\workspace\AppiumProject/Screenshots/Test_appInstallation1475809844758.jpg
+2016-10-07 08:41:08 INFO  DriverInitialization:264 - Addon's are not displayed
+2016-10-07 08:41:09 INFO  SignInPage:37 - Suresh
+2016-10-07 08:41:09 INFO  SignInPage:40 - User Successfully Loggedin
+2016-10-07 08:41:15 INFO  SignOutPage:32 - User Successfully LoggedOut
+2016-10-07 08:41:15 INFO  DriverInitialization:272 - Taking the screenshot into a file: D:\eclipse-jee-mars\workspace\AppiumProject/Screenshots/Test_LoginPage1475809875926.jpg
+2016-10-07 08:41:40 INFO  SignInPage:52 - true
+2016-10-07 08:41:40 INFO  SignInPage:54 - Incorrect User details
+2016-10-07 08:41:40 INFO  DriverInitialization:272 - Taking the screenshot into a file: D:\eclipse-jee-mars\workspace\AppiumProject/Screenshots/Test_InValidLogin1475809900134.jpg
+2016-10-07 08:42:20 INFO  ForgotPasswordPage:50 - Forgot Password screen validation completed
+2016-10-07 08:42:22 INFO  DriverInitialization:272 - Taking the screenshot into a file: D:\eclipse-jee-mars\workspace\AppiumProject/Screenshots/Test_forgotPasswordPage1475809942033.jpg
+2016-10-07 08:42:50 INFO  DriverInitialization:264 - Addon's are not displayed
+2016-10-07 08:42:50 INFO  SignInPage:37 - Suresh
+2016-10-07 08:42:50 INFO  SignInPage:40 - User Successfully Loggedin
+2016-10-07 08:43:06 INFO  ProfilePage:50 - Back button functioned
+2016-10-07 08:43:06 INFO  ProfilePage:51 - My Account Details screen validation completed
+2016-10-07 08:43:29 INFO  ProfilePage:88 - Addresses
+2016-10-07 08:44:08 ERROR ProfilePage:144 - org.openqa.selenium.NoSuchElementException: Can't locate an element by this strategy: Locator map: 
+- native content: "By.id: address_mobile_number" 
+- html content: "by id or name "ADDRESS_MOBILE_NUMBER""
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.53.0', revision: '35ae25b1534ae328c771e0856c93e187490ca824', time: '2016-03-15 10:43:46'
+System info: host: 'Suresh-PC', ip: '192.168.1.100', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.7.0_65'
+Driver info: driver.version: unknown
+2016-10-07 08:44:32 INFO  ProfilePage:69 - View Transaction History screen validation completed
+2016-10-07 08:44:42 INFO  SignOutPage:32 - User Successfully LoggedOut
+2016-10-07 08:44:42 INFO  DriverInitialization:272 - Taking the screenshot into a file: D:\eclipse-jee-mars\workspace\AppiumProject/Screenshots/Test_profilePage1475810082727.jpg
+2016-10-07 08:44:54 INFO  DriverInitialization:264 - Addon's are not displayed
+2016-10-07 08:44:54 INFO  SignInPage:65 - User Successfully Loggedin with Facebook ID
+2016-10-07 08:45:00 INFO  SignOutPage:32 - User Successfully LoggedOut
+2016-10-07 08:45:00 INFO  DriverInitialization:272 - Taking the screenshot into a file: D:\eclipse-jee-mars\workspace\AppiumProject/Screenshots/Test_facebookLogin1475810100630.jpg
+2016-10-07 08:45:26 INFO  DriverInitialization:264 - Addon's are not displayed
+2016-10-07 08:45:26 INFO  SignInPage:81 - User Successfully Loggedin with Goole ID
+2016-10-07 08:45:32 INFO  SignOutPage:32 - User Successfully LoggedOut
+2016-10-07 08:45:32 INFO  DriverInitialization:272 - Taking the screenshot into a file: D:\eclipse-jee-mars\workspace\AppiumProject/Screenshots/Test_gmailLogin1475810132050.jpg
+2016-10-07 08:45:56 INFO  DriverInitialization:264 - Addon's are not displayed
+2016-10-07 08:45:56 INFO  SignInPage:37 - Suresh
+2016-10-07 08:45:56 INFO  SignInPage:40 - User Successfully Loggedin
+2016-10-07 08:46:11 INFO  OffersPage:33 - Offers button functioned and Horizontal scroll validation completed
+2016-10-07 08:46:18 INFO  HomePage:28 - Home Button Functioned Successfully
+2016-10-07 08:46:25 INFO  SignOutPage:32 - User Successfully LoggedOut
+2016-10-07 08:46:25 INFO  DriverInitialization:272 - Taking the screenshot into a file: D:\eclipse-jee-mars\workspace\AppiumProject/Screenshots/Test_horizontalScroll1475810185120.jpg
+2016-10-07 08:46:48 INFO  DriverInitialization:264 - Addon's are not displayed
+2016-10-07 08:46:48 INFO  SignInPage:37 - Suresh
+2016-10-07 08:46:48 INFO  SignInPage:40 - User Successfully Loggedin
+2016-10-07 08:46:59 INFO  ProductDetailsPage:29 - Product Details validation completed
+2016-10-07 08:47:36 INFO  SignOutPage:32 - User Successfully LoggedOut
+2016-10-07 08:47:36 INFO  DriverInitialization:272 - Taking the screenshot into a file: D:\eclipse-jee-mars\workspace\AppiumProject/Screenshots/Test_productDetailspage1475810256553.jpg
+2016-10-07 08:48:00 INFO  DriverInitialization:264 - Addon's are not displayed
+2016-10-07 08:48:00 INFO  SignInPage:37 - Suresh
+2016-10-07 08:48:00 INFO  SignInPage:40 - User Successfully Loggedin
+2016-10-07 08:48:34 INFO  SwitchToWebUIPage:36 - https://www.freecharge.in/app/termsandconditions.htm
+2016-10-07 08:48:34 INFO  SwitchToWebUIPage:38 - Terms and Conditions validation completed in Freecharge WEB UI
+2016-10-07 08:48:47 INFO  SignOutPage:32 - User Successfully LoggedOut
+2016-10-07 08:48:47 INFO  DriverInitialization:272 - Taking the screenshot into a file: D:\eclipse-jee-mars\workspace\AppiumProject/Screenshots/Test_SwitchToWebUIPage1475810327423.jpg
+2016-10-07 08:49:28 INFO  RegisterationPage:44 - Registration Failed
+2016-10-07 08:49:28 INFO  DriverInitialization:272 - Taking the screenshot into a file: D:\eclipse-jee-mars\workspace\AppiumProject/Screenshots/Test_registrationPage1475810368469.jpg
+2016-10-07 08:49:29 INFO  DriverInitialization:31 - inside quit method...

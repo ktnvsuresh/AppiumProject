@@ -16,11 +16,11 @@ public class NetworkConnectionsPage extends DriverInitialization
 	Logger logger=Logger.getLogger(NetworkConnectionsPage.class); 
 	//Script for enable and disable the network connections through appium
 	@Override
-	public void networkConnections() throws InterruptedException {
+	public void networkConnections(boolean isEnabled) throws InterruptedException {
 		try{
 			// Identify Network status
-			NetworkConnectionSetting networkConnection = driver.getNetworkConnection();
-			
+			//NetworkConnectionSetting networkConnection = driver.getNetworkConnection();
+			NetworkConnectionSetting networkConnection = new NetworkConnectionSetting(false, isEnabled, false);
 			
 			Boolean status = networkConnection.wifiEnabled();
 			System.out.println(status);
@@ -48,8 +48,9 @@ public class NetworkConnectionsPage extends DriverInitialization
 	@Override
 	public void enableInterNet(boolean isEnabled) {
 		NetworkConnectionSetting networkConnection = new NetworkConnectionSetting(false, isEnabled, false);
-		driver.setNetworkConnection(networkConnection);
+		//driver.setNetworkConnection(networkConnection);
 
+		
 	}
 
 

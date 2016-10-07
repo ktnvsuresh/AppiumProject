@@ -379,4 +379,9 @@ public class DriverInitialization {
 		// TODO Auto-generated method stub
 
 	}
+
+	public void networkConnections(boolean isEnabled) throws InterruptedException {
+		// TODO Auto-generated method stub
+		
+	}
 }

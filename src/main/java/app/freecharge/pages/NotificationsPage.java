@@ -33,7 +33,7 @@ public class NotificationsPage extends DriverInitialization{
 
 	@Override
 	public void ClearAllNotifications() {
-		driver.openNotifications();
+		//driver.openNotifications();
 			
 		try {
 			if (notificationPageObjects.NOTIFICATIONS_CLEAR.isDisplayed()== true){
@@ -60,7 +60,8 @@ public class NotificationsPage extends DriverInitialization{
 	@Override
 	public  String Notifications() throws Exception{
 		//open notification
-		driver.openNotifications();
+		//driver.openNotifications();
+		
 		String OTPMessage= null;
 		//android.widget.TextView[contains(@resource-id,'android:id/title') and @text='IM-FCHRGE']
 		OTPMessage=notificationPageObjects.NOTIFICATION_GET_TEXT.getText();

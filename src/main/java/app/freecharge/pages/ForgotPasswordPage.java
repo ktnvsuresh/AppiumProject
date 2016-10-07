@@ -29,8 +29,8 @@ public class ForgotPasswordPage extends DriverInitialization{
 	@Override
 	public void ForgotPassword() throws Exception
 	{
-		notificationsPage = new NotificationsPage();
-		notificationsPage.ClearAllNotifications();
+		//notificationsPage = new NotificationsPage();
+		//notificationsPage.ClearAllNotifications();
 		forgotPasswordPageObjects.FORGOT_PWD_LINK.click();
 		forgotPasswordPageObjects.FORGOT_PWD_EMAIL.sendKeys("ramyamca1@gmail.com");
 		forgotPasswordPageObjects.FORGOT_PWD_SUBMIT_BUTTON.click();
@@ -39,9 +39,9 @@ public class ForgotPasswordPage extends DriverInitialization{
 		forgotPasswordPageObjects.FORGOT_REENTER_PWD.sendKeys("xxxxxxxxx");
 		driver.hideKeyboard();
 		Thread.sleep(10000);
-		String OTPmessagevalue= notificationsPage.Notifications();
-		forgotPasswordPageObjects.FORGOT_PWD_CODE.sendKeys(OTPmessagevalue);
-		driver.hideKeyboard();
+		//String OTPmessagevalue= notificationsPage.Notifications();
+		//forgotPasswordPageObjects.FORGOT_PWD_CODE.sendKeys(OTPmessagevalue);
+		//driver.hideKeyboard();
 		forgotPasswordPageObjects.FORGOT_RESET_SUBMIT_BUTTON.click();
 		result = null;
 		result = forgotPasswordPageObjects.FORGOT_PWD_VALIDATION.getText();

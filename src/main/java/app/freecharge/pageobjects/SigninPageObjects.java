@@ -31,7 +31,7 @@ public class SigninPageObjects {
 	@AndroidFindBy(xpath = "//android.widget.TextView[contains(@resource-id,'com.freecharge.android:id/action_bar_title') and @text='Ramya Suresh']")
 	public MobileElement ACTION_BAR_TITLE__GOOGLE_LOGIN;
 	
-	@AndroidFindBy(id = "OK")
+	@AndroidFindBy(name = "OK")
 	public MobileElement OK;
 	
 }

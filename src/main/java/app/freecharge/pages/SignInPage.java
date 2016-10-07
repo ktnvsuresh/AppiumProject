@@ -70,6 +70,7 @@ public class SignInPage extends DriverInitialization{
 	public void GoogleLogin() throws InterruptedException
 	{
 		signinPageObjects.GOOGLE_SIGNIN_BUTTON.click();
+		Thread.sleep(10000);
 		radioButton("ramyamca1@gmail.com");
 		signinPageObjects.OK.click();
 		Thread.sleep(10000);

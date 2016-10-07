@@ -54,6 +54,7 @@ public class ProfilePage extends DriverInitialization{
 	@Override
 	public void viewTransactionHistory() throws InterruptedException{
 		//driver.sendKeyEvent(AndroidKeyCode.BACK);
+		Thread.sleep(5000);
 		driver.navigate().back();
 		profileClick();
 		//driver.scrollTo(elementprop.getProperty("VIEW_TRANSACTIONS_HISTORY_LINK"));
@@ -71,6 +72,7 @@ public class ProfilePage extends DriverInitialization{
 	@Override
 	public void addAddress() throws InterruptedException{
 		//driver.sendKeyEvent(AndroidKeyCode.BACK);
+		Thread.sleep(5000);
 		driver.navigate().back();
 		profileClick();
 		//driver.scrollTo(elementprop.getProperty("MY_ACCOUNT_DETAILS"));

@@ -8,10 +8,10 @@ public class ForgotPasswordPageObjects {
 	@AndroidFindBy (id = "com.freecharge.android:id/signin_forgot_password")
 	public MobileElement FORGOT_PWD_LINK; 
 	
-	@AndroidFindBy (id =" com.freecharge.android:id/forgot_pwd_email_box")
+	@AndroidFindBy (id ="com.freecharge.android:id/forgot_pwd_email_box")
 	public MobileElement FORGOT_PWD_EMAIL;
 	
-	@AndroidFindBy(id= " com.freecharge.android:id/forgot_pwd_submit")
+	@AndroidFindBy(id= "com.freecharge.android:id/forgot_pwd_submit")
 	public MobileElement FORGOT_PWD_SUBMIT_BUTTON;
 	
 	@AndroidFindBy (id= "com.freecharge.android:id/forgot_enter_pwd_box")
